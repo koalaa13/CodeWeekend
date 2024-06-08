@@ -81,9 +81,11 @@ public class CleverSolver extends Solver {
         for (int iter = 0; iter < movesLimit; iter++) {
             List<State> allStates = answers.get(iter).getAllStates();
             if (iter % 20 == 0) {
-                System.out.println("Iter " + (iter + 1) + " / " + movesLimit);
-                System.out.println("Max golds: " +
-                        allStates.stream().map(s -> s.game.getGoldGained()).max(Comparator.naturalOrder()));
+                System.out.println();
+                System.out.println("Iter: " + (iter + 1) + "/" + movesLimit + ". Max gold: " +
+                        allStates.stream()
+                                .map(s -> s.game.getGoldGained()).max(Comparator.naturalOrder())
+                                .orElse(0L));
             }
             for (State s : allStates) {
                 for (int mI = 0; mI < s.game.getField().getMonsters().size(); mI++) {
