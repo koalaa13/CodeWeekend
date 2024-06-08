@@ -63,11 +63,11 @@ public class CleverSolver extends Solver {
         }
 
         public void addNewState(State state) {
-            insertToQueue(bestByGold, state, 5);
-            insertToQueue(bestByExp, state, 5);
+            insertToQueue(bestByGold, state, 3);
+            insertToQueue(bestByExp, state, 3);
 //            insertToQueue(bestByMoves, state, 5);
-            insertToQueue(bestByComplex, state, 25);
-            insertToQueue(bestByFatigue, state, 5);
+            insertToQueue(bestByComplex, state, 5);
+            insertToQueue(bestByFatigue, state, 10);
         }
 
         public List<State> getAllStates() {
@@ -114,17 +114,15 @@ public class CleverSolver extends Solver {
                     List<TravelMove> travelMoves = MoveUtils.moveToShotRange(nGame.getHero(), monster);
                     CombatUtils.getDamage(nGame.getHero(), travelMoves, nGame.getField().getMonsters());
                     long movesToKill = CombatUtils.movesToKill(nGame.getHero(), monster);
-                    for (int mvId = 0; mvId < movesToKill - 1; mvId++) {
-                        CombatUtils.getDamage(nGame.getHero(), nGame.getHero().getX(),
-                                nGame.getHero().getY(), nGame.getField().getMonsters());
-                    }
+                    CombatUtils.getDamage(nGame.getHero(), nGame.getHero().getX(),
+                            nGame.getHero().getY(), nGame.getField().getMonsters(), movesToKill - 1);
                     List<AttackMove> attackMoves = CombatUtils.killMonster(nGame.getHero(), monster);
                     nState.moves.addAll(travelMoves);
                     nState.moves.addAll(attackMoves);
                     nGame.setGoldGained(nGame.getGoldGained() + nGame.getHero().getGold(monster.getGold()));
                     nGame.setTravelsCount(nGame.getTravelsCount() + travelMoves.size());
                     CombatUtils.getDamage(nGame.getHero(), nGame.getHero().getX(),
-                            nGame.getHero().getY(), nGame.getField().getMonsters());
+                            nGame.getHero().getY(), nGame.getField().getMonsters(), 1);
                     if (nState.moves.size() < movesLimit) {
                         answers.get(nState.moves.size()).addNewState(nState);
                     }

@@ -45,19 +45,19 @@ public class CombatUtils {
         return Math.ceilDiv(monster.getHp(), hero.getPower());
     }
 
-    public static void getDamage(Hero hero, long x, long y, List<Monster> monsters) {
+    public static void getDamage(Hero hero, long x, long y, List<Monster> monsters, long duration) {
         long damage = 0;
         for (Monster monster : monsters) {
             if (!monster.isKilled()) {
                 damage += monster.attack(x, y);
             }
         }
-        hero.setFatigue(hero.getFatigue() + damage);
+        hero.setFatigue(hero.getFatigue() + damage * duration);
     }
 
     public static void getDamage(Hero hero, List<TravelMove> travelMoves, List<Monster> monsters) {
         for (TravelMove travelMove : travelMoves) {
-            getDamage(hero, travelMove.getTargetX(), travelMove.getTargetY(), monsters);
+            getDamage(hero, travelMove.getTargetX(), travelMove.getTargetY(), monsters, 1);
         }
     }
 }
