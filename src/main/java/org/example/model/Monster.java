@@ -11,4 +11,5 @@ public class Monster {
     private long gold;
     private int id;
     private boolean killed;
+    private boolean vip;
 }

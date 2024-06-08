@@ -13,4 +13,9 @@ public class DoingNothingSolver extends Solver {
     public List<Move> solve(Game game) {
         return Collections.emptyList();
     }
+
+    @Override
+    public List<Move> doubleSolve(Game game1, Game game2) {
+        return Collections.emptyList();
+    }
 }

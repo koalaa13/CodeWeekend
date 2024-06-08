@@ -33,7 +33,7 @@ public class ScoreProvider {
                 .reduce(0.0, Double::sum);
     }
 
-    private double monsterRelativeScore(Monster monster, Hero hero) {
+    public double monsterRelativeScore(Monster monster, Hero hero) {
         if (monster.isKilled()) {
             return -1;
         }
@@ -42,16 +42,25 @@ public class ScoreProvider {
         if (moves > game.getNumTurns()) {
             return 0;
         }
+        if (monster.isVip() && game.getTurnsPassed() < constants.lateStart) {
+            return constants.vipCoeff / (double) travelMoves.size();
+        }
         long goldCoeff = constants.goldCoeff;
         long expCoeff = constants.expCoeff;
         if (game.getTurnsPassed() >= constants.lateStart) {
             goldCoeff = constants.lateGoldCoeff;
             expCoeff = constants.lateExpCoeff;
         }
-        return (double)(monster.getGold() * goldCoeff + monster.getExp() * expCoeff) / (double) moves;
+        return (double)(monster.getGold() * goldCoeff + monster.getExp() * expCoeff) / movesFunc((double) moves);
     }
 
-    private double monsterRelativeScoreWithZone(Monster monster, Hero hero) {
+    private double movesFunc(double moves) {
+        // return moves * Math.log(moves);
+        return moves;
+        //return moves;
+    }
+
+    /*private double monsterRelativeScoreWithZone(Monster monster, Hero hero) {
         if (monster.isKilled()) {
             return -1;
         }
@@ -66,9 +75,9 @@ public class ScoreProvider {
             futureHero.setY(travelMoves.getLast().getTargetY());
         }
         double zoneScore = zoneScore(futureHero);
-        return (double)(monster.getGold() * constants.goldCoeff + monster.getExp() * constants.expCoeff) / (double) moves
+        return (double)(monster.getGold() * constants.goldCoeff + monster.getExp() * constants.expCoeff) / movesFunc((double) moves);
                 + zoneScore * constants.zoneCoeff;
-    }
+    }*/
 
     private BiFunction<Monster, Hero, Double> getScoreFunction() {
         /*if (game.getTurnsPassed() > 50) {

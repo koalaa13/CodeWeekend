@@ -9,6 +9,8 @@ import org.example.parser.Parser;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
 public class FieldParser extends Parser<Field> {
     private Field parseField(JsonNode json) throws JsonProcessingException {
@@ -25,7 +27,12 @@ public class FieldParser extends Parser<Field> {
 
         for (int i = 0; i < field.getMonsters().size(); i++) {
             field.getMonsters().get(i).setId(i);
+            if (field.getMonsters().get(i).getExp() > 1) {
+                field.getMonsters().get(i).setVip(true);
+            }
         }
+
+        Collections.shuffle(field.getMonsters(), new Random(1373737));
 
         //field.setMonsters(field.getMonsters().stream().filter(m -> m.getGold() > 1).toList());
 

@@ -12,7 +12,9 @@ import org.example.solve.Solver;
 import org.example.solve.SolverConstants;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class SimpleSolver extends Solver {
     public SolverConstants constants;
@@ -31,6 +33,7 @@ public class SimpleSolver extends Solver {
             if (optimalMonster.isKilled()) {
                 break;
             }
+            scoreProvider.monsterRelativeScore(optimalMonster, game.getHero());
             List<TravelMove> travelMoves = MoveUtils.moveToShotRange(game.getHero(), optimalMonster);
             moves.addAll(travelMoves);
             game.setNumTurns(game.getNumTurns() - travelMoves.size());
@@ -51,5 +54,22 @@ public class SimpleSolver extends Solver {
             moves = moves.subList(0, movesLimit);
         }
         return moves;
+    }
+
+    @Override
+    public List<Move> doubleSolve(Game game1, Game game2) {
+        solve(game1);
+        Set<Integer> vips = new HashSet<>();
+        for (Monster monster : game1.getField().getMonsters()) {
+            if (monster.isKilled()) {
+                vips.add(monster.getId());
+            }
+        }
+        for (Monster monster : game2.getField().getMonsters()) {
+            if (vips.contains(monster.getId())) {
+                monster.setVip(true);
+            }
+        }
+        return solve(game2);
     }
 }
