@@ -10,21 +10,23 @@ public class Monster {
     private long hp;
     private long gold;
     private int id;
-    private boolean killed;
 
     public Monster() {}
 
-    public Monster(long x, long y, long exp, long hp, long gold, int id, boolean killed) {
+    public Monster(long x, long y, long exp, long hp, long gold, int id) {
         this.x = x;
         this.y = y;
         this.exp = exp;
         this.hp = hp;
         this.gold = gold;
         this.id = id;
-        this.killed = killed;
     }
 
     public Monster makeCopy() {
-        return new Monster(x, y, exp, hp, gold, id, killed);
+        return new Monster(x, y, exp, hp, gold, id);
+    }
+
+    public boolean isKilled() {
+        return hp <= 0;
     }
 }

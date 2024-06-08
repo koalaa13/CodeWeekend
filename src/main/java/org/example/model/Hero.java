@@ -14,6 +14,7 @@ public class Hero {
     private long y;
     private long level;
     private long exp;
+    private long totalExp;
 
     public long getSpeed() {
         return (long) Math.floor((double) baseSpeed * (1 + (double) level * levelSpeedCoeff / 100.0));

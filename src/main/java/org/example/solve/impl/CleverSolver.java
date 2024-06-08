@@ -13,7 +13,6 @@ import org.example.solve.SolverConstants;
 import java.util.*;
 
 public class CleverSolver extends Solver {
-    private static int QUEUE_SIZE = 22;
 
     static class State {
         Game game;
@@ -31,36 +30,47 @@ public class CleverSolver extends Solver {
     }
 
     static class BestMoves {
+        private static final Comparator<State> compareByTotalExp = Comparator.comparingLong(o -> o.game.getHero().getTotalExp());
         static List<Comparator<State>> comps = List.of(
-                Comparator.comparingLong(s -> s.game.getGoldGained()),
+                Comparator.comparingLong(o -> o.game.getGoldGained()),
+                compareByTotalExp,
                 (o1, o2) -> {
-                    var h1 = o1.game.getHero();
-                    var h2 = o2.game.getHero();
-                    if (h1.getLevel() != h2.getLevel()) {
-                        return Long.compare(h1.getLevel(), h2.getLevel());
+                    if (o1.game.getTravelsCount() != o2.game.getTravelsCount()) {
+                        return Long.compare(o2.game.getTravelsCount(), o1.game.getTravelsCount());
                     }
-                    return Long.compare(h1.getExp(), h2.getExp());
-                }
+                    return compareByTotalExp.compare(o1, o2);
+                },
+                Comparator.comparingLong(o -> o.game.getHero().getTotalExp() * 5L + o.game.getGoldGained())
         );
-        PriorityQueue<State> bestByGold = new PriorityQueue<>(comps.get(0));
+        private final PriorityQueue<State> bestByGold = new PriorityQueue<>(comps.get(0));
 
-        PriorityQueue<State> bestByExp = new PriorityQueue<>(comps.get(1));
+        private final PriorityQueue<State> bestByExp = new PriorityQueue<>(comps.get(1));
+
+        private final PriorityQueue<State> bestByMoves = new PriorityQueue<>(comps.get(2));
+
+        private final PriorityQueue<State> bestByComplex = new PriorityQueue<>(comps.get(3));
+
+        private <T> void insertToQueue(PriorityQueue<T> queue, T elem, int limit) {
+            if (!queue.contains(elem)) {
+                queue.add(elem);
+                if (queue.size() > limit) {
+                    queue.poll();
+                }
+            }
+        }
 
         public void addNewState(State state) {
-            bestByGold.add(state);
-            bestByExp.add(state);
-            if (bestByGold.size() > QUEUE_SIZE) {
-                bestByGold.poll();
-            }
-            if (bestByExp.size() > QUEUE_SIZE) {
-                bestByExp.poll();
-            }
+            insertToQueue(bestByGold, state, 15);
+            insertToQueue(bestByExp, state, 10);
+            insertToQueue(bestByMoves, state, 5);
+            insertToQueue(bestByComplex, state, 30);
         }
 
         public List<State> getAllStates() {
             Set<State> set = new HashSet<>();
             set.addAll(bestByExp);
             set.addAll(bestByGold);
+            set.addAll(bestByMoves);
             return new ArrayList<>(set);
         }
     }
@@ -80,8 +90,8 @@ public class CleverSolver extends Solver {
         answers.get(0).addNewState(initialState);
         for (int iter = 0; iter < movesLimit; iter++) {
             List<State> allStates = answers.get(iter).getAllStates();
-            if (iter % 20 == 0) {
-                System.out.println("Iter: " + (iter + 1) + "/" + movesLimit + ". Max gold: " +
+            if (iter % 50 == 0) {
+                System.out.println((iter + 1) + "/" + movesLimit + ". Max gold: " +
                         allStates.stream()
                                 .map(s -> s.game.getGoldGained()).max(Comparator.naturalOrder())
                                 .orElse(0L));
@@ -100,6 +110,7 @@ public class CleverSolver extends Solver {
                     nState.moves.addAll(travelMoves);
                     nState.moves.addAll(attackMoves);
                     nGame.setGoldGained(nGame.getGoldGained() + monster.getGold());
+                    nGame.setTravelsCount(nGame.getTravelsCount() + travelMoves.size());
                     if (nState.moves.size() < movesLimit) {
                         answers.get(nState.moves.size()).addNewState(nState);
                     }
