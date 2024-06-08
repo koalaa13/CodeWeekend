@@ -9,4 +9,6 @@ public class Monster {
     private long exp;
     private long hp;
     private long gold;
+    private int id;
+    private boolean killed;
 }

@@ -23,6 +23,10 @@ public class FieldParser extends Parser<Field> {
             field.getMonsters().add(objectMapper.treeToValue(m, Monster.class));
         }
 
+        for (int i = 0; i < field.getMonsters().size(); i++) {
+            field.getMonsters().get(i).setId(i);
+        }
+
         return field;
     }
 
