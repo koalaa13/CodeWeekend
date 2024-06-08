@@ -63,11 +63,11 @@ public class CleverSolver extends Solver {
         }
 
         public void addNewState(State state) {
-            insertToQueue(bestByGold, state, 5);
-            insertToQueue(bestByExp, state, 5);
+            insertToQueue(bestByGold, state, 1);
+            insertToQueue(bestByExp, state, 1);
 //            insertToQueue(bestByMoves, state, 5);
-            insertToQueue(bestByComplex, state, 15);
-            insertToQueue(bestByFatigue, state, 8);
+            insertToQueue(bestByComplex, state, 3);
+            insertToQueue(bestByFatigue, state, 3);
         }
 
         public List<State> getAllStates() {
@@ -112,7 +112,7 @@ public class CleverSolver extends Solver {
                     Monster monster = nGame.getField().snapshotMonster(mI);
 
                     List<TravelMove> travelMoves = MoveUtils.moveToShotRange(nGame.getHero(), monster);
-//                    CombatUtils.getDamage(nGame.getHero(), travelMoves, nGame.getField().getMonsters());
+                    CombatUtils.getDamage(nGame.getHero(), travelMoves, nGame.getField().getMonsters());
 
                     long movesToKill = CombatUtils.movesToKill(nGame.getHero(), monster);
                     CombatUtils.getDamage(nGame.getHero(), nGame.getHero().getX(),
