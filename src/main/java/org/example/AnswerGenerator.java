@@ -16,6 +16,7 @@ public class AnswerGenerator {
         File dir = new File(Config.TEST_FOLDER);
         File[] files = dir.listFiles();
         for (File f : files) {
+            System.out.println("Calculating answer for " + f.getName());
             if (f.isDirectory()) {
                 continue;
             }
