@@ -62,8 +62,8 @@ public class ScoreProvider {
         }
         Hero futureHero = hero.makeCopy();
         if (!travelMoves.isEmpty()) {
-            futureHero.setX(travelMoves.getLast().getTargetX());
-            futureHero.setY(travelMoves.getLast().getTargetY());
+            futureHero.setX(travelMoves.get(travelMoves.size() - 1).getTargetX());
+            futureHero.setY(travelMoves.get(travelMoves.size() - 1).getTargetY());
         }
         double zoneScore = zoneScore(futureHero);
         return (double)(monster.getGold() * constants.goldCoeff + monster.getExp() * constants.expCoeff) / (double) moves

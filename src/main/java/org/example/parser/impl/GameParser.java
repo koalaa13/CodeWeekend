@@ -19,6 +19,6 @@ public class GameParser extends Parser<Game> {
 
     @Override
     public Game parse(File file) throws IOException {
-        return new Game(heroParser.parse(file), fieldParser.parse(file), numTurnsParser.parse(file), 0, 0);
+        return new Game(heroParser.parse(file), fieldParser.parse(file), numTurnsParser.parse(file), 0, 0, 0);
     }
 }
