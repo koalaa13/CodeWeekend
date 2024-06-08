@@ -29,7 +29,7 @@ public class CleverSolver extends Solver {
         }
     }
 
-    static class BestMoves {
+    private class BestMoves {
         private static final Comparator<State> compareByTotalExp = Comparator.comparingLong(o -> o.game.getHero().getTotalExp());
         static List<Comparator<State>> comps = List.of(
                 Comparator.comparingLong(o -> o.game.getGoldGained()),
@@ -71,6 +71,7 @@ public class CleverSolver extends Solver {
             set.addAll(bestByExp);
             set.addAll(bestByGold);
             set.addAll(bestByMoves);
+            set.addAll(bestByComplex);
             return new ArrayList<>(set);
         }
     }
