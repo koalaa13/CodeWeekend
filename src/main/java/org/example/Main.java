@@ -21,12 +21,14 @@ public class Main {
         //new SolveFileWriter().writeToFile(solver.solve(new GameParser().parse("00" + 2 + ".json")), "00" + 2 + "_ans.json");
 
         for (int i = 1; i <= 9; i++) {
-            new SolveFileWriter().writeToFile(solver.solve(new GameParser().parse("00" + i + ".json")), "00" + i + "_ans.json");
-            System.out.println(i + " done");
+            Game game = new GameParser().parse("00" + i + ".json");
+            new SolveFileWriter().writeToFile(solver.solve(game), "00" + i + "_ans.json");
+            System.out.println(i + " done, result = " + game.getGoldGained());
         }
         for (int i = 10; i <= 25; i++) {
-            new SolveFileWriter().writeToFile(solver.solve(new GameParser().parse("0" + i + ".json")), "0" + i + "_ans.json");
-            System.out.println(i + " done");
+            Game game = new GameParser().parse("0" + i + ".json");
+            new SolveFileWriter().writeToFile(solver.solve(game), "0" + i + "_ans.json");
+            System.out.println(i + " done, result = " + game.getGoldGained());
         }
     }
 }

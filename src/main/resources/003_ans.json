@@ -4582,7 +4582,8 @@
     "target_id" : 530,
     "type" : "attack"
   }, {
-    "target_id" : 358,
-    "type" : "attack"
+    "target_x" : 764,
+    "target_y" : 676,
+    "type" : "move"
   } ]
 }

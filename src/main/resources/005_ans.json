@@ -5213,19 +5213,24 @@
     "target_id" : 798,
     "type" : "attack"
   }, {
-    "target_id" : 376,
-    "type" : "attack"
+    "target_x" : 712,
+    "target_y" : 167,
+    "type" : "move"
   }, {
-    "target_id" : 376,
-    "type" : "attack"
+    "target_x" : 635,
+    "target_y" : 147,
+    "type" : "move"
   }, {
-    "target_id" : 376,
-    "type" : "attack"
+    "target_x" : 558,
+    "target_y" : 128,
+    "type" : "move"
   }, {
-    "target_id" : 376,
-    "type" : "attack"
+    "target_x" : 481,
+    "target_y" : 109,
+    "type" : "move"
   }, {
-    "target_id" : 376,
-    "type" : "attack"
+    "target_x" : 404,
+    "target_y" : 90,
+    "type" : "move"
   } ]
 }

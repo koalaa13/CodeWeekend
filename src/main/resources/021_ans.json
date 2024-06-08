@@ -2546,8 +2546,7 @@
     "target_id" : 556,
     "type" : "attack"
   }, {
-    "target_x" : 200,
-    "target_y" : 228,
-    "type" : "move"
+    "target_id" : 253,
+    "type" : "attack"
   } ]
 }

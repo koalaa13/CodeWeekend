@@ -1617,13 +1617,16 @@
     "target_id" : 914,
     "type" : "attack"
   }, {
-    "target_id" : 572,
-    "type" : "attack"
+    "target_x" : 1721,
+    "target_y" : 140,
+    "type" : "move"
   }, {
-    "target_id" : 572,
-    "type" : "attack"
+    "target_x" : 1714,
+    "target_y" : 164,
+    "type" : "move"
   }, {
-    "target_id" : 572,
-    "type" : "attack"
+    "target_x" : 1707,
+    "target_y" : 188,
+    "type" : "move"
   } ]
 }

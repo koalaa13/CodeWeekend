@@ -1635,7 +1635,8 @@
     "target_id" : 24,
     "type" : "attack"
   }, {
-    "target_id" : 26,
-    "type" : "attack"
+    "target_x" : 471,
+    "target_y" : 117,
+    "type" : "move"
   } ]
 }

@@ -7,5 +7,4 @@ import java.util.List;
 
 public abstract class Solver {
     public abstract List<Move> solve(Game game);
-    public abstract SolverConstants getConstants();
 }

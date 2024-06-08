@@ -4904,7 +4904,8 @@
     "target_id" : 134,
     "type" : "attack"
   }, {
-    "target_id" : 358,
-    "type" : "attack"
+    "target_x" : 635,
+    "target_y" : 802,
+    "type" : "move"
   } ]
 }

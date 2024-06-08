@@ -13,9 +13,4 @@ public class DoingNothingSolver extends Solver {
     public List<Move> solve(Game game) {
         return Collections.emptyList();
     }
-
-    @Override
-    public SolverConstants getConstants() {
-        return null;
-    }
 }

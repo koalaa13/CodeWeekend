@@ -38,16 +38,14 @@ public class SimpleSolver extends Solver {
             List<AttackMove> attackMoves = CombatUtils.killMonster(game.getHero(), optimalMonster);
             moves.addAll(attackMoves);
             game.setNumTurns(game.getNumTurns() - attackMoves.size());
+            if (game.getNumTurns() >= 0) {
+                game.setGoldGained(game.getGoldGained() + optimalMonster.getGold());
+            }
         }
 
         if (moves.size() > movesLimit) {
             moves = moves.subList(0, movesLimit);
         }
         return moves;
-    }
-
-    @Override
-    public SolverConstants getConstants() {
-        return constants;
     }
 }

@@ -23,6 +23,9 @@ public class ScoreProvider {
             return -1;
         }
         long moves = CombatUtils.movesToKill(hero, monster) + MoveUtils.calcMovesToShotRange(hero, monster).size();
+        if (moves > game.getNumTurns()) {
+            return 0;
+        }
         return (double)(monster.getGold() * constants.goldCoeff + monster.getExp() * constants.expCoeff) / (double) moves;
     }
 

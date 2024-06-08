@@ -1560,14 +1560,13 @@
     "target_id" : 650,
     "type" : "attack"
   }, {
-    "target_x" : 542,
-    "target_y" : 1420,
-    "type" : "move"
-  }, {
-    "target_id" : 35,
+    "target_id" : 715,
     "type" : "attack"
   }, {
-    "target_id" : 35,
+    "target_id" : 715,
+    "type" : "attack"
+  }, {
+    "target_id" : 715,
     "type" : "attack"
   } ]
 }

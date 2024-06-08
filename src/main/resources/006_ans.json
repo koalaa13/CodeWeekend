@@ -3854,17 +3854,20 @@
     "target_id" : 898,
     "type" : "attack"
   }, {
-    "target_x" : 1690,
-    "target_y" : 606,
+    "target_x" : 1618,
+    "target_y" : 604,
     "type" : "move"
   }, {
-    "target_id" : 763,
-    "type" : "attack"
+    "target_x" : 1563,
+    "target_y" : 563,
+    "type" : "move"
   }, {
-    "target_id" : 763,
-    "type" : "attack"
+    "target_x" : 1507,
+    "target_y" : 523,
+    "type" : "move"
   }, {
-    "target_id" : 763,
-    "type" : "attack"
+    "target_x" : 1452,
+    "target_y" : 482,
+    "type" : "move"
   } ]
 }

@@ -32,15 +32,14 @@
     "target_id" : 4,
     "type" : "attack"
   }, {
-    "target_x" : 46,
-    "target_y" : 28,
+    "target_x" : 49,
+    "target_y" : 33,
     "type" : "move"
   }, {
-    "target_x" : 39,
-    "target_y" : 26,
-    "type" : "move"
+    "target_id" : 6,
+    "type" : "attack"
   }, {
-    "target_id" : 0,
+    "target_id" : 6,
     "type" : "attack"
   } ]
 }

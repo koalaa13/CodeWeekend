@@ -1657,14 +1657,16 @@
     "target_id" : 101,
     "type" : "attack"
   }, {
-    "target_x" : 922,
-    "target_y" : 267,
+    "target_x" : 900,
+    "target_y" : 268,
     "type" : "move"
   }, {
-    "target_id" : 100,
-    "type" : "attack"
+    "target_x" : 882,
+    "target_y" : 270,
+    "type" : "move"
   }, {
-    "target_id" : 100,
-    "type" : "attack"
+    "target_x" : 864,
+    "target_y" : 272,
+    "type" : "move"
   } ]
 }

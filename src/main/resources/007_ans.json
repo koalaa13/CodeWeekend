@@ -1362,12 +1362,12 @@
     "target_id" : 411,
     "type" : "attack"
   }, {
-    "target_x" : 1766,
-    "target_y" : 119,
+    "target_x" : 1685,
+    "target_y" : 87,
     "type" : "move"
   }, {
-    "target_x" : 1799,
-    "target_y" : 151,
+    "target_x" : 1638,
+    "target_y" : 87,
     "type" : "move"
   } ]
 }

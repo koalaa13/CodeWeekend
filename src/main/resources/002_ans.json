@@ -173,16 +173,18 @@
     "target_id" : 13,
     "type" : "attack"
   }, {
-    "target_id" : 16,
+    "target_x" : 91,
+    "target_y" : 34,
+    "type" : "move"
+  }, {
+    "target_x" : 76,
+    "target_y" : 32,
+    "type" : "move"
+  }, {
+    "target_id" : 2,
     "type" : "attack"
   }, {
-    "target_id" : 16,
-    "type" : "attack"
-  }, {
-    "target_id" : 16,
-    "type" : "attack"
-  }, {
-    "target_id" : 16,
+    "target_id" : 2,
     "type" : "attack"
   } ]
 }
