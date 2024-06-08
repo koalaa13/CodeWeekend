@@ -9,11 +9,11 @@ public class Util {
 
     public static void levelUpHero(Hero hero, Monster killedMonster) {
         // Если за убийство получаем сразу несколько лвлов
-        for (int exp = killedMonster.getExp(); exp > 0; ) {
-            int level = hero.getLevel() + 1;
-            int toLvlUpExp = 1000 + level * (level - 1) * 50;
-            int curExp = hero.getExp();
-            int needExp = toLvlUpExp - curExp;
+        for (long exp = killedMonster.getExp(); exp > 0; ) {
+            long level = hero.getLevel() + 1;
+            long toLvlUpExp = 1000L + level * (level - 1L) * 50L;
+            long curExp = hero.getExp();
+            long needExp = toLvlUpExp - curExp;
             // Не хватает опыта, просто докидываем что есть
             if (needExp > exp) {
                 hero.setExp(hero.getExp() + exp);
@@ -26,7 +26,7 @@ public class Util {
         }
     }
 
-    public static int turnsToKill(Hero hero, Monster monster) {
+    public static long turnsToKill(Hero hero, Monster monster) {
         return Math.ceilDiv(monster.getHp(), hero.getPower());
     }
 }

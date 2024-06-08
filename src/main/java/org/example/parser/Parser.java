@@ -10,6 +10,8 @@ import java.io.IOException;
 
 public abstract class Parser<T> {
     protected final ObjectMapper objectMapper;
+    protected final String testFolder =
+            "/home/nmaksimov/Рабочий стол/codeweekend/codeweekend/src/main/resources/";
 
     protected Parser() {
         objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);

@@ -14,8 +14,8 @@ public class FieldParser extends Parser<Field> {
     private Field parseField(JsonNode json) throws JsonProcessingException {
         Field field = new Field();
 
-        field.setWidth(json.get("width").asInt());
-        field.setHeight(json.get("height").asInt());
+        field.setWidth(json.get("width").asLong());
+        field.setHeight(json.get("height").asLong());
 
         field.setMonsters(new ArrayList<>());
 

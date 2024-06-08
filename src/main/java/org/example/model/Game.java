@@ -8,5 +8,5 @@ import lombok.Data;
 public class Game {
     private Hero hero;
     private Field field;
-    private int numTurns;
+    private long numTurns;
 }

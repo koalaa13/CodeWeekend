@@ -4,9 +4,9 @@ import lombok.Data;
 
 @Data
 public class Monster {
-    private int x;
-    private int y;
-    private int exp;
-    private int hp;
-    private int gold;
+    private long x;
+    private long y;
+    private long exp;
+    private long hp;
+    private long gold;
 }

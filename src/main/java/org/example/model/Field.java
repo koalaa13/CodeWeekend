@@ -7,7 +7,7 @@ import java.util.List;
 @Data
 public class Field {
     private List<Monster> monsters;
-    private int width;
-    private int height;
+    private long width;
+    private long height;
 
 }

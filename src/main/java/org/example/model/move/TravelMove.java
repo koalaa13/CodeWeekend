@@ -8,8 +8,8 @@ import lombok.EqualsAndHashCode;
 @Data
 @AllArgsConstructor
 public class TravelMove extends Move {
-    private int targetX;
-    private int targetY;
+    private long targetX;
+    private long targetY;
 
     @Override
     public String getType() {

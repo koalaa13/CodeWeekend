@@ -12,16 +12,16 @@ public class HeroParser extends Parser<Hero> {
         Hero hero = new Hero();
         JsonNode heroInfo = json.get("hero");
 
-        hero.setBaseSpeed(heroInfo.get("base_speed").asInt());
-        hero.setBasePower(heroInfo.get("base_power").asInt());
-        hero.setBaseRange(heroInfo.get("base_range").asInt());
+        hero.setBaseSpeed(heroInfo.get("base_speed").asLong());
+        hero.setBasePower(heroInfo.get("base_power").asLong());
+        hero.setBaseRange(heroInfo.get("base_range").asLong());
 
-        hero.setLevelSpeedCoeff(heroInfo.get("level_speed_coeff").asInt());
-        hero.setLevelPowerCoeff(heroInfo.get("level_power_coeff").asInt());
-        hero.setLevelRangeCoeff(heroInfo.get("level_range_coeff").asInt());
+        hero.setLevelSpeedCoeff(heroInfo.get("level_speed_coeff").asLong());
+        hero.setLevelPowerCoeff(heroInfo.get("level_power_coeff").asLong());
+        hero.setLevelRangeCoeff(heroInfo.get("level_range_coeff").asLong());
 
-        hero.setX(json.get("start_x").asInt());
-        hero.setY(json.get("start_y").asInt());
+        hero.setX(json.get("start_x").asLong());
+        hero.setY(json.get("start_y").asLong());
 
         return hero;
     }
