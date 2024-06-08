@@ -15,17 +15,19 @@ public class Monster {
 
     public Monster() {}
 
-    public Monster(long x, long y, long exp, long hp, long gold, int id) {
+    public Monster(long x, long y, long exp, long hp, long gold, int id, long range, long attack) {
         this.x = x;
         this.y = y;
         this.exp = exp;
         this.hp = hp;
         this.gold = gold;
         this.id = id;
+        this.range = range;
+        this.attack = attack;
     }
 
     public Monster makeCopy() {
-        return new Monster(x, y, exp, hp, gold, id);
+        return new Monster(x, y, exp, hp, gold, id, range, attack);
     }
 
     public boolean isKilled() {

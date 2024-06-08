@@ -108,7 +108,7 @@ public class SmallMapSolver extends Solver {
         List<Move> moves = new ArrayList<>();
         while (moves.size() < game.getNumTurns()) {
 //            System.out.println(hasNonZeroMetric(metrics));
-            Position toMove = pointsOrder.getFirst();
+            Position toMove = pointsOrder.get(0);
             System.out.println("tried to move " + toMove.x + ' ' + toMove.y);
             // Если мы уже убили всех в округе такое может быть
             if (!canAttackSomeone(toMove, hero.getRange(), toMove.x, toMove.y)) {
