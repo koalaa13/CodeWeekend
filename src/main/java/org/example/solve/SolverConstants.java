@@ -1,7 +1,15 @@
 package org.example.solve;
 
 public class SolverConstants {
-    public long goldCoeff = 7;
+    public long goldCoeff = 1;
 
-    public long expCoeff = 3;
+    public long expCoeff = 10;
+
+    public long zoneCoeff = 1;
+
+    public long lateGoldCoeff = 1;
+
+    public long lateExpCoeff = 0;
+
+    public long lateStart = 1000000;
 }

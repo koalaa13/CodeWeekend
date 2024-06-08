@@ -26,4 +26,19 @@ public class Hero {
     public long getRange() {
         return (long) Math.floor((double) baseRange * (1 + (double) level * levelRangeCoeff / 100.0));
     }
+
+    public Hero makeCopy() {
+        Hero hero = new Hero();
+        hero.baseSpeed = baseSpeed;
+        hero.basePower = basePower;
+        hero.baseRange = baseRange;
+        hero.levelSpeedCoeff = levelSpeedCoeff;
+        hero.levelPowerCoeff = levelPowerCoeff;
+        hero.levelRangeCoeff = levelRangeCoeff;
+        hero.x = x;
+        hero.y = y;
+        hero.level = level;
+        hero.exp = exp;
+        return hero;
+    }
 }

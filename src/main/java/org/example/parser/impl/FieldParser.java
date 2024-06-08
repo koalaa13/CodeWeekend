@@ -27,6 +27,8 @@ public class FieldParser extends Parser<Field> {
             field.getMonsters().get(i).setId(i);
         }
 
+        //field.setMonsters(field.getMonsters().stream().filter(m -> m.getGold() > 1).toList());
+
         return field;
     }
 

@@ -26,7 +26,7 @@ public class SimpleSolver extends Solver {
         int movesLimit = (int) game.getNumTurns();
         List<Move> moves = new ArrayList<>();
         ScoreProvider scoreProvider = new ScoreProvider(game, constants);
-        while (game.getNumTurns() > 0) {
+        for (int iter = 0; game.getNumTurns() > 0; iter++) {
             Monster optimalMonster = scoreProvider.findOptimalMonstersByScore();
             if (optimalMonster.isKilled()) {
                 break;
@@ -34,13 +34,17 @@ public class SimpleSolver extends Solver {
             List<TravelMove> travelMoves = MoveUtils.moveToShotRange(game.getHero(), optimalMonster);
             moves.addAll(travelMoves);
             game.setNumTurns(game.getNumTurns() - travelMoves.size());
+            game.setTurnsPassed(game.getTurnsPassed() + travelMoves.size());
 
             List<AttackMove> attackMoves = CombatUtils.killMonster(game.getHero(), optimalMonster);
             moves.addAll(attackMoves);
             game.setNumTurns(game.getNumTurns() - attackMoves.size());
+            game.setTurnsPassed(game.getTurnsPassed() + attackMoves.size());
+
             if (game.getNumTurns() >= 0) {
                 game.setGoldGained(game.getGoldGained() + optimalMonster.getGold());
             }
+            //System.out.println(iter);
         }
 
         if (moves.size() > movesLimit) {
