@@ -49,8 +49,8 @@ public class MoveUtils {
     public static List<TravelMove> moveToShotRange(Hero hero, Monster monster) {
         List<TravelMove> moves = calcMovesToShotRange(hero, monster);
         if (!moves.isEmpty()) {
-            hero.setX(moves.getLast().getTargetX());
-            hero.setY(moves.getLast().getTargetY());
+            hero.setX(moves.get(moves.size() - 1).getTargetX());
+            hero.setY(moves.get(moves.size() - 1).getTargetY());
         }
         return moves;
     }

@@ -6,6 +6,7 @@ import org.example.parser.impl.GameParser;
 import org.example.solve.SolveFileWriter;
 import org.example.solve.Solver;
 import org.example.solve.SolverConstants;
+import org.example.solve.impl.CleverSolver;
 import org.example.solve.impl.SimpleSolver;
 
 import java.io.IOException;
@@ -39,7 +40,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         AnswerGenerator answerGenerator = new AnswerGenerator();
-        Solver solver = new SimpleSolver(new SolverConstants());
+        Solver solver = new CleverSolver(new SolverConstants());
         answerGenerator.generateAllTestsAnswers(solver);
     }
 }

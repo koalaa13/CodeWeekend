@@ -15,7 +15,9 @@ public class AnswerGenerator {
     public void generateAllTestsAnswers(Solver solver) throws IOException {
         File dir = new File(Config.TEST_FOLDER);
         File[] files = dir.listFiles();
-        for (File f : files) {
+        for (int i = 0; i < files.length; i++) {
+            File f = files[i];
+            System.out.println("Calculating answer for " + f.getName() + " (" + (i + 1) + "/" + files.length + ")");
             if (f.isDirectory()) {
                 continue;
             }

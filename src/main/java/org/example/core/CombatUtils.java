@@ -12,6 +12,7 @@ public class CombatUtils {
     public static void levelUpHero(Hero hero, Monster killedMonster) {
         // Если за убийство получаем сразу несколько лвлов
         int kek = 0;
+        hero.setTotalExp(hero.getTotalExp() + killedMonster.getExp());
         for (long exp = killedMonster.getExp(); exp > 0; ) {
             long level = hero.getLevel() + 1;
             long toLvlUpExp = 1000L + level * (level - 1L) * 50L;
@@ -35,7 +36,6 @@ public class CombatUtils {
             monster.setHp(monster.getHp() - hero.getPower());
             moves.add(new AttackMove(monster.getId()));
         }
-        monster.setKilled(true);
         levelUpHero(hero, monster);
         return moves;
     }
