@@ -11,6 +11,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MoveUtils {
+    public static List<TravelMove> calcMovesToGoToPoint(Hero hero, Position position) {
+        long wasRange = hero.getRange();
+        long wasLevel = hero.getLevel();
+        hero.setBaseRange(0);
+        hero.setLevel(0);
+
+        Monster monster = new Monster();
+        monster.setX(position.x);
+        monster.setY(position.y);
+        List<TravelMove> moves = calcMovesToShotRange(hero, monster);
+
+        hero.setBaseRange(wasRange);
+        hero.setLevel(wasLevel);
+
+        return moves;
+    }
+
     public static List<TravelMove> calcMovesToShotRange(Hero hero, Monster monster) {
         List<TravelMove> moves = new ArrayList<>();
         Position heroPos = new Position(hero.getX(), hero.getY());

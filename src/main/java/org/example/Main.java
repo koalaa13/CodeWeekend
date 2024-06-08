@@ -7,6 +7,7 @@ import org.example.solve.SolveFileWriter;
 import org.example.solve.Solver;
 import org.example.solve.SolverConstants;
 import org.example.solve.impl.SimpleSolver;
+import org.example.solve.impl.SmallMapSolver;
 
 import java.io.IOException;
 import java.util.List;
@@ -38,8 +39,8 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
+        Solver solver = new SmallMapSolver();
         AnswerGenerator answerGenerator = new AnswerGenerator();
-        Solver solver = new SimpleSolver(new SolverConstants());
-        answerGenerator.generateAllTestsAnswers(solver);
+        answerGenerator.generateTestAnswer(solver, 2);
     }
 }

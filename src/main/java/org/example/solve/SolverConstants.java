@@ -3,7 +3,7 @@ package org.example.solve;
 public class SolverConstants {
     public long goldCoeff = 1;
 
-    public long expCoeff = 10;
+    public long expCoeff = 1;
 
     public long zoneCoeff = 1;
 

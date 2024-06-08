@@ -1,5 +1,8 @@
 package org.example.geom;
 
+import lombok.EqualsAndHashCode;
+
+@EqualsAndHashCode
 public class Position {
     public long x;
     public long y;

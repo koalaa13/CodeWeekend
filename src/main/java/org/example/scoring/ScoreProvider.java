@@ -33,9 +33,9 @@ public class ScoreProvider {
                 .reduce(0.0, Double::sum);
     }
 
-    private double monsterRelativeScore(Monster monster, Hero hero) {
+    public double monsterRelativeScore(Monster monster, Hero hero) {
         if (monster.isKilled()) {
-            return -1;
+            return 0;
         }
         List<TravelMove> travelMoves = MoveUtils.calcMovesToShotRange(hero, monster);
         long moves = CombatUtils.movesToKill(hero, monster) + travelMoves.size();
@@ -53,7 +53,7 @@ public class ScoreProvider {
 
     private double monsterRelativeScoreWithZone(Monster monster, Hero hero) {
         if (monster.isKilled()) {
-            return -1;
+            return 0;
         }
         List<TravelMove> travelMoves = MoveUtils.calcMovesToShotRange(hero, monster);
         long moves = CombatUtils.movesToKill(hero, monster) + travelMoves.size();
