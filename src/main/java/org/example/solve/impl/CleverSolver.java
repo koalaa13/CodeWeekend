@@ -60,10 +60,10 @@ public class CleverSolver extends Solver {
         }
 
         public void addNewState(State state) {
-            insertToQueue(bestByGold, state, 15);
+            insertToQueue(bestByGold, state, 10);
             insertToQueue(bestByExp, state, 10);
             insertToQueue(bestByMoves, state, 5);
-            insertToQueue(bestByComplex, state, 30);
+            insertToQueue(bestByComplex, state, 40);
         }
 
         public List<State> getAllStates() {
