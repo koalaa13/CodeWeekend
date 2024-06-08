@@ -2,11 +2,11 @@ package org.example.core;
 
 import org.example.model.Hero;
 import org.example.model.Monster;
-import org.example.model.move.TravelMove;
-
-import java.util.List;
 
 public class Util {
+    public static final String TEST_FOLDER =
+            "/home/nmaksimov/Рабочий стол/codeweekend/codeweekend/src/main/resources/";
+
     public static void levelUpHero(Hero hero, Monster killedMonster) {
         // Если за убийство получаем сразу несколько лвлов
         for (int exp = killedMonster.getExp(); exp > 0; ) {
