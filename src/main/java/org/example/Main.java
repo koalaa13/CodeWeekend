@@ -6,6 +6,7 @@ import org.example.parser.impl.GameParser;
 import org.example.solve.SolveFileWriter;
 import org.example.solve.Solver;
 import org.example.solve.SolverConstants;
+import org.example.solve.impl.CleverSolver;
 import org.example.solve.impl.SimpleSolver;
 import org.example.solve.impl.SmallMapSolver;
 
@@ -39,8 +40,8 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        Solver solver = new SmallMapSolver();
+        Solver solver = new CleverSolver();
         AnswerGenerator answerGenerator = new AnswerGenerator();
-        answerGenerator.generateTestAnswer(solver, 2);
+        answerGenerator.generateAllTestsAnswers(solver, true);
     }
 }

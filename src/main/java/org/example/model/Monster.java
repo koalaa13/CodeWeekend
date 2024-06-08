@@ -31,4 +31,11 @@ public class Monster {
     public boolean isKilled() {
         return hp <= 0;
     }
+
+    public long attack(long hX, long hY) {
+        if ((hX - x) * (hX - x) + (hY - y) * (hY - y) <= range * range) {
+            return attack;
+        }
+        return 0;
+    }
 }

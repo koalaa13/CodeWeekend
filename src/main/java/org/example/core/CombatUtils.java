@@ -4,6 +4,7 @@ import org.example.model.Hero;
 import org.example.model.Monster;
 import org.example.model.move.AttackMove;
 import org.example.model.move.Move;
+import org.example.model.move.TravelMove;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,5 +43,21 @@ public class CombatUtils {
 
     public static long movesToKill(Hero hero, Monster monster) {
         return Math.ceilDiv(monster.getHp(), hero.getPower());
+    }
+
+    public static void getDamage(Hero hero, long x, long y, List<Monster> monsters) {
+        long damage = 0;
+        for (Monster monster : monsters) {
+            if (!monster.isKilled()) {
+                damage += monster.attack(x, y);
+            }
+        }
+        hero.setFatigue(hero.getFatigue() + damage);
+    }
+
+    public static void getDamage(Hero hero, List<TravelMove> travelMoves, List<Monster> monsters) {
+        for (TravelMove travelMove : travelMoves) {
+            getDamage(hero, travelMove.getTargetX(), travelMove.getTargetY(), monsters);
+        }
     }
 }

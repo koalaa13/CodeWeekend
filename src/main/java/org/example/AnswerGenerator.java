@@ -12,7 +12,7 @@ import java.util.List;
 
 public class AnswerGenerator {
 
-    public void generateAllTestsAnswers(Solver solver) throws IOException {
+    public void generateAllTestsAnswers(Solver solver, boolean onlyNew) throws IOException {
         File dir = new File(Config.TEST_FOLDER);
         File[] files = dir.listFiles();
         for (int i = 0; i < files.length; i++) {
@@ -21,7 +21,11 @@ public class AnswerGenerator {
             if (f.isDirectory()) {
                 continue;
             }
-            String filename = f.getName().split("\\.")[0] + "_ans.json";
+            String tId = f.getName().split("\\.")[0];
+            if (Integer.parseInt(tId) < 26 && onlyNew) {
+                continue;
+            }
+            String filename = tId + "_ans.json";
             generateTestAnswer(solver, f, filename);
         }
     }

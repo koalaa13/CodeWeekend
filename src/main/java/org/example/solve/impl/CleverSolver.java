@@ -64,7 +64,7 @@ public class CleverSolver extends Solver {
         public void addNewState(State state) {
             insertToQueue(bestByGold, state, 5);
             insertToQueue(bestByExp, state, 5);
-            insertToQueue(bestByMoves, state, 5);
+//            insertToQueue(bestByMoves, state, 5);
             insertToQueue(bestByComplex, state, 25);
             insertToQueue(bestByFatigue, state, 5);
         }
@@ -73,18 +73,18 @@ public class CleverSolver extends Solver {
             Set<State> set = new HashSet<>();
             set.addAll(bestByExp);
             set.addAll(bestByGold);
-            set.addAll(bestByMoves);
+//            set.addAll(bestByMoves);
             set.addAll(bestByComplex);
             set.addAll(bestByFatigue);
             return new ArrayList<>(set);
         }
     }
 
-    public SolverConstants constants;
+//    public SolverConstants constants;
 
-    public CleverSolver(SolverConstants constants) {
-        this.constants = constants;
-    }
+//    public CleverSolver(SolverConstants constants) {
+//        this.constants = constants;
+//    }
 
     @Override
     public List<Move> solve(Game game) {
@@ -111,11 +111,19 @@ public class CleverSolver extends Solver {
                     Monster monster = nGame.getField().snapshotMonster(mI);
 
                     List<TravelMove> travelMoves = MoveUtils.moveToShotRange(nGame.getHero(), monster);
+                    CombatUtils.getDamage(nGame.getHero(), travelMoves, nGame.getField().getMonsters());
+                    long movesToKill = CombatUtils.movesToKill(nGame.getHero(), monster);
+                    for (int mvId = 0; mvId < movesToKill - 1; mvId++) {
+                        CombatUtils.getDamage(nGame.getHero(), nGame.getHero().getX(),
+                                nGame.getHero().getY(), nGame.getField().getMonsters());
+                    }
                     List<AttackMove> attackMoves = CombatUtils.killMonster(nGame.getHero(), monster);
                     nState.moves.addAll(travelMoves);
                     nState.moves.addAll(attackMoves);
                     nGame.setGoldGained(nGame.getGoldGained() + monster.getGold());
                     nGame.setTravelsCount(nGame.getTravelsCount() + travelMoves.size());
+                    CombatUtils.getDamage(nGame.getHero(), nGame.getHero().getX(),
+                            nGame.getHero().getY(), nGame.getField().getMonsters());
                     if (nState.moves.size() < movesLimit) {
                         answers.get(nState.moves.size()).addNewState(nState);
                     }
