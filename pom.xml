@@ -38,7 +38,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.example.yourMain</mainClass>
+                            <mainClass>org.example.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

@@ -13,7 +13,7 @@ import org.example.solve.SolverConstants;
 import java.util.*;
 
 public class CleverSolver extends Solver {
-    private static int QUEUE_SIZE = 15;
+    private static int QUEUE_SIZE = 20;
 
     static class State {
         Game game;
@@ -79,7 +79,7 @@ public class CleverSolver extends Solver {
         var initialState = new State(game, new ArrayList<>());
         answers.get(0).addNewState(initialState);
         for (int iter = 0; iter < movesLimit; iter++) {
-            System.out.println("Iter " + (iter + 1) + " / " + movesLimit);
+            if (iter % 10 == 0) System.out.println("Iter " + (iter + 1) + " / " + movesLimit);
             List<State> allStates = answers.get(iter).getAllStates();
 //            System.out.println("Golds: " + allStates.stream().map(s -> s.game.getGoldGained()).toList());
             for (State s : allStates) {
