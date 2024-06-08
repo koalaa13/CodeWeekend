@@ -66,8 +66,8 @@ public class CleverSolver extends Solver {
             insertToQueue(bestByGold, state, 3);
             insertToQueue(bestByExp, state, 3);
 //            insertToQueue(bestByMoves, state, 5);
-            insertToQueue(bestByComplex, state, 10);
-            insertToQueue(bestByFatigue, state, 5);
+            insertToQueue(bestByComplex, state, 15);
+            insertToQueue(bestByFatigue, state, 10);
         }
 
         public List<State> getAllStates() {
@@ -89,6 +89,7 @@ public class CleverSolver extends Solver {
 
     @Override
     public List<Move> solve(Game game) {
+        long startTime = System.currentTimeMillis();
         int movesLimit = (int) game.getNumTurns();
         List<BestMoves> answers = new ArrayList<>();
         for (int i = 0; i < game.getNumTurns(); i++) answers.add(new BestMoves());
@@ -97,10 +98,9 @@ public class CleverSolver extends Solver {
         for (int iter = 0; iter < movesLimit; iter++) {
             List<State> allStates = answers.get(iter).getAllStates();
             if (iter % 50 == 0) {
-                System.out.println((iter + 1) + "/" + movesLimit + ". Max gold: " +
-                        allStates.stream()
-                                .map(s -> s.game.getGoldGained()).max(Comparator.naturalOrder())
-                                .orElse(0L));
+                long spentTime = (System.currentTimeMillis() - startTime) / 1000;
+                long gold =  allStates.stream().map(s -> s.game.getGoldGained()).max(Comparator.naturalOrder()).orElse(0L);
+                System.out.println((iter + 1) + "/" + movesLimit + ". Max gold: " + gold + ". Time: " + spentTime);
             }
             for (State s : allStates) {
                 for (int mI = 0; mI < s.game.getField().getMonsters().size(); mI++) {
