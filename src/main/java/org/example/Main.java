@@ -37,35 +37,9 @@ public class Main {
         }
     }
 
-    public static void experiment(int test) throws IOException {
-        Solver solver = new SimpleSolver(new SolverConstants());
-
-        String stest = String.valueOf(test);
-        while (stest.length() != 3) {
-            stest = "0" + stest;
-        }
-        Game game = new GameParser().parse(stest + ".json");
-        new SolveFileWriter().writeToFile(solver.solve(game), stest + "_ans.json");
-        System.out.println(test + " done, result = " + game.getGoldGained());
-    }
-
-    public static void all() throws IOException {
-        Solver solver = new SimpleSolver(new SolverConstants());
-
-        for (int i = 1; i <= 9; i++) {
-            Game game = new GameParser().parse("00" + i + ".json");
-            new SolveFileWriter().writeToFile(solver.solve(game), "00" + i + "_ans.json");
-            System.out.println(i + " done, result = " + game.getGoldGained());
-        }
-        for (int i = 10; i <= 25; i++) {
-            Game game = new GameParser().parse("0" + i + ".json");
-            new SolveFileWriter().writeToFile(solver.solve(game), "0" + i + "_ans.json");
-            System.out.println(i + " done, result = " + game.getGoldGained());
-        }
-    }
-
     public static void main(String[] args) throws IOException {
-        //experiment(15);
-        brute(15);
+        AnswerGenerator answerGenerator = new AnswerGenerator();
+        Solver solver = new SimpleSolver(new SolverConstants());
+        answerGenerator.generateAllTestsAnswers(solver);
     }
 }
