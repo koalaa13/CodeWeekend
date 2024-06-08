@@ -40,7 +40,8 @@ public class CleverSolver extends Solver {
                     }
                     return compareByTotalExp.compare(o1, o2);
                 },
-                Comparator.comparingLong(o -> o.game.getHero().getTotalExp() * 5L + o.game.getGoldGained())
+                Comparator.comparingLong(o -> o.game.getHero().getTotalExp() * 5L + o.game.getGoldGained()),
+                Comparator.comparingLong(o -> o.game.getHero().getFatigue())
         );
         private final PriorityQueue<State> bestByGold = new PriorityQueue<>(comps.get(0));
 
@@ -120,7 +121,7 @@ public class CleverSolver extends Solver {
                     List<AttackMove> attackMoves = CombatUtils.killMonster(nGame.getHero(), monster);
                     nState.moves.addAll(travelMoves);
                     nState.moves.addAll(attackMoves);
-                    nGame.setGoldGained(nGame.getGoldGained() + monster.getGold());
+                    nGame.setGoldGained(nGame.getGoldGained() + nGame.getHero().getGold(monster.getGold()));
                     nGame.setTravelsCount(nGame.getTravelsCount() + travelMoves.size());
                     CombatUtils.getDamage(nGame.getHero(), nGame.getHero().getX(),
                             nGame.getHero().getY(), nGame.getField().getMonsters());

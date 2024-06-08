@@ -29,6 +29,10 @@ public class Hero {
         return (long) Math.floor((double) baseRange * (1 + (double) level * levelRangeCoeff / 100.0));
     }
 
+    public long getGold(long monsterGold) {
+        return (1000 * monsterGold) / (1000 + fatigue);
+    }
+
     public Hero makeCopy() {
         Hero hero = new Hero();
         hero.baseSpeed = baseSpeed;
