@@ -63,11 +63,9 @@ public class CleverSolver extends Solver {
         private final PriorityQueue<State> bestByDistance = new PriorityQueue<>(comps.get(4));
 
         private <T> void insertToQueue(PriorityQueue<T> queue, T elem, int limit) {
-            if (!queue.contains(elem)) {
-                queue.add(elem);
-                if (queue.size() > limit) {
-                    queue.poll();
-                }
+            queue.add(elem);
+            if (queue.size() > limit) {
+                queue.poll();
             }
         }
 
@@ -75,7 +73,7 @@ public class CleverSolver extends Solver {
             insertToQueue(bestByGold, state, 1);
             insertToQueue(bestByExp, state, 3);
 //            insertToQueue(bestByMoves, state, 5);
-            insertToQueue(bestByComplex, state, 15);
+            insertToQueue(bestByComplex, state, 12);
             insertToQueue(bestByDistance, state, 3);
         }
 
@@ -120,10 +118,14 @@ public class CleverSolver extends Solver {
         answers.get(0).addNewState(initialState);
         for (int iter = 0; iter < movesLimit; iter++) {
             List<State> allStates = answers.get(iter).getAllStates();
-            if (iter % 50 == 0) {
+            if (iter % 20 == 0) {
                 long expectedTime = (System.currentTimeMillis() - startTime) * (movesLimit - iter) / 1000 / (iter + 1);
-                long gold = allStates.stream().map(s -> s.game.getGoldGained()).max(Comparator.naturalOrder()).orElse(0L);
-                System.out.printf("%s. %d/%d. Max gold: %d. Expected: %d%n", name, iter + 1, movesLimit, gold, expectedTime);
+                Optional<State> st = allStates.stream().max(Comparator.comparingLong(s -> s.game.getGoldGained()));
+                if (st.isPresent()) {
+                    System.out.printf("%s. %d/%d. Max gold: %d. Fatigue: %d. Expected: %d%n",
+                            name, iter + 1, movesLimit, st.get().game.getGoldGained(),
+                            st.get().game.getHero().getFatigue(), expectedTime);
+                }
             }
             for (State s : allStates) {
                 State nState = s.makeCopy();
