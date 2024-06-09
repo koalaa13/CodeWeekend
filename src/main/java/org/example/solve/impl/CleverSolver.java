@@ -40,7 +40,7 @@ public class CleverSolver extends Solver {
                     for (long fMod : mods) {
                         for (long dMod : mods) {
                             res.add(Comparator.comparingLong(o ->
-                                    eMod * o.game.getHero().getTotalExp() - fMod * o.game.getHero().getFatigue() +
+                                    eMod * o.game.getHero().getTotalExp() - 10 * fMod * o.game.getHero().getFatigue() +
                                             gMod * o.game.getGoldGained() + dMod * o.game.getHero().getShift()
                             ));
                         }
@@ -61,7 +61,7 @@ public class CleverSolver extends Solver {
         }
 
         public synchronized void addNewState(State state) {
-            bestStates.forEach(q -> insertToQueue(q, state, 3));
+            bestStates.forEach(q -> insertToQueue(q, state, 10));
         }
 
         public List<State> getAllStates() {
@@ -115,11 +115,12 @@ public class CleverSolver extends Solver {
 
         // Fake monsters
         final int monsterCount = game.getField().getMonsters().size();
+        int split = 20;
         int newMonsterId = monsterCount + 1;
-        for (int i = 0; i < 11; i++) {
-            for (int j = 0; j < 11; j++) {
-                long x = game.getField().getWidth() * i / 10;
-                long y = game.getField().getHeight() * j / 10;
+        for (int i = 0; i <= split; i++) {
+            for (int j = 0; j <= split; j++) {
+                long x = game.getField().getWidth() * i / split;
+                long y = game.getField().getHeight() * j / split;
                 Monster monster = new Monster(x, y, 0, 1, 0, newMonsterId++, 0, 0);
                 game.getField().getMonsters().add(monster);
             }
