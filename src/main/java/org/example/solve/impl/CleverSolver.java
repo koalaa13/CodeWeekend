@@ -37,10 +37,10 @@ public class CleverSolver extends Solver {
         private static final Comparator<State> compareByTotalExp =
                 Comparator.comparingLong(o -> o.game.getHero().getTotalExp() * 100 - o.game.getHero().getFatigue());
         private static final Comparator<State> compareByComplex =
-                Comparator.comparingLong(o -> o.game.getHero().getTotalExp() * 5 + o.game.getGoldGained() - 5 * o.game.getHero().getFatigue());
+                Comparator.comparingLong(o -> o.game.getHero().getTotalExp() * 10 + o.game.getGoldGained() - 50 * o.game.getHero().getFatigue());
         private static final Comparator<State> compareByDistance =
                 Comparator.comparingLong(o ->
-                        o.game.getHero().getTotalExp() * 5 + o.game.getGoldGained() - o.game.getHero().getFatigue() + o.game.getHero().getShift());
+                        o.game.getHero().getTotalExp() * 5 + o.game.getGoldGained() - 50 * o.game.getHero().getFatigue() + 10 * o.game.getHero().getShift());
 
         static List<Comparator<State>> comps = List.of(
                 compareByGold,
@@ -72,10 +72,10 @@ public class CleverSolver extends Solver {
         }
 
         public synchronized void addNewState(State state) {
-            insertToQueue(bestByGold, state, 1);
+            insertToQueue(bestByGold, state, 3);
             insertToQueue(bestByExp, state, 3);
 //            insertToQueue(bestByMoves, state, 5);
-            insertToQueue(bestByComplex, state, 12);
+            insertToQueue(bestByComplex, state, 25);
             insertToQueue(bestByDistance, state, 3);
         }
 
@@ -135,10 +135,10 @@ public class CleverSolver extends Solver {
         // Fake monsters
         final int monsterCount = game.getField().getMonsters().size();
         int newMonsterId = monsterCount + 1;
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 6; j++) {
-                long x = game.getField().getWidth() * i / 5;
-                long y = game.getField().getHeight() * j / 5;
+        for (int i = 0; i < 11; i++) {
+            for (int j = 0; j < 11; j++) {
+                long x = game.getField().getWidth() * i / 10;
+                long y = game.getField().getHeight() * j / 10;
                 Monster monster = new Monster(x, y, 0, 1, 0, newMonsterId++, 0, 0);
                 game.getField().getMonsters().add(monster);
             }
@@ -160,7 +160,7 @@ public class CleverSolver extends Solver {
                     solveFileWriter.writeToFile(st.get().moves);
                 }
             }
-            if (monsterCount > 1500) {
+            if (monsterCount > 700) {
                 List<Thread> threads = allStates.stream()
                         .map(s -> new Thread(() -> processState(s, monsterCount, movesLimit, answers))).toList();
                 threads.forEach(Thread::start);
