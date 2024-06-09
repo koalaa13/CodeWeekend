@@ -81,7 +81,7 @@ public class AnswerGenerator {
     public void generateTestAnswer(Solver solver, File file, String answerFilename) throws IOException {
         GameParser gameParser = new GameParser();
         Game game = gameParser.parse(file);
-        List<Move> moves = solver.solve(game);
+        List<Move> moves = solver.solve(game, file.getName());
         SolveFileWriter solveFileWriter = new SolveFileWriter();
         solveFileWriter.writeToFile(moves, "ans/" + answerFilename);
     }

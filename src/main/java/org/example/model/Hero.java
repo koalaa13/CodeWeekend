@@ -12,6 +12,8 @@ public class Hero {
     private long levelRangeCoeff;
     private long x;
     private long y;
+    private long startX;
+    private long startY;
     private long level;
     private long exp;
     private long totalExp;
@@ -33,6 +35,15 @@ public class Hero {
         return (1000 * monsterGold) / (1000 + fatigue);
     }
 
+    public void initStart() {
+        startX = x;
+        startY = y;
+    }
+
+    public long getShift() {
+        return Math.abs(startX - x) + Math.abs(startY - y);
+    }
+
     public Hero makeCopy() {
         Hero hero = new Hero();
         hero.baseSpeed = baseSpeed;
@@ -43,6 +54,8 @@ public class Hero {
         hero.levelRangeCoeff = levelRangeCoeff;
         hero.x = x;
         hero.y = y;
+        hero.startX = startX;
+        hero.startY = startY;
         hero.level = level;
         hero.exp = exp;
         hero.fatigue = fatigue;

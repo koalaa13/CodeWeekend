@@ -6,5 +6,11 @@ import org.example.model.move.Move;
 import java.util.List;
 
 public abstract class Solver {
-    public abstract List<Move> solve(Game game);
+    public List<Move> solve(Game game) {
+        return solve(game, "-");
+    }
+
+    public List<Move> solve(Game game, String name) {
+        return solve(game);
+    }
 }
