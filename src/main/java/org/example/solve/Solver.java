@@ -16,6 +16,6 @@ public abstract class Solver {
     }
 
     public List<Move> solve(Game game, String name, SolveFileWriter solveFileWriter) throws IOException {
-        return solve(game);
+        return solve(game, name);
     }
 }
