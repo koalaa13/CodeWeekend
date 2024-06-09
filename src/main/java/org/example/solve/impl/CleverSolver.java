@@ -7,9 +7,11 @@ import org.example.model.Monster;
 import org.example.model.move.AttackMove;
 import org.example.model.move.Move;
 import org.example.model.move.TravelMove;
+import org.example.solve.SolveFileWriter;
 import org.example.solve.Solver;
 import org.example.solve.SolverConstants;
 
+import java.io.IOException;
 import java.util.*;
 
 public class CleverSolver extends Solver {
@@ -95,7 +97,7 @@ public class CleverSolver extends Solver {
 //    }
 
     @Override
-    public List<Move> solve(Game game, String name) {
+    public List<Move> solve(Game game, String name, SolveFileWriter solveFileWriter) throws IOException {
         long startTime = System.currentTimeMillis();
         int movesLimit = (int) game.getNumTurns();
         game.getHero().initStart();
@@ -125,6 +127,7 @@ public class CleverSolver extends Solver {
                     System.out.printf("%s. %d/%d. Max gold: %d. Fatigue: %d. Expected: %d%n",
                             name, iter + 1, movesLimit, st.get().game.getGoldGained(),
                             st.get().game.getHero().getFatigue(), expectedTime);
+                    solveFileWriter.writeToFile(st.get().moves);
                 }
             }
             for (State s : allStates) {

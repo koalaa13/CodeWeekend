@@ -8,7 +8,6 @@ import org.example.solve.Solver;
 import org.example.solve.SolverConstants;
 import org.example.solve.impl.CleverSolver;
 import org.example.solve.impl.SimpleSolver;
-import org.example.solve.impl.SmallMapSolver;
 
 import java.io.IOException;
 import java.util.List;
@@ -32,7 +31,7 @@ public class Main {
             List<Move> moves = solver.solve(game);
             if (game.getGoldGained() > best) {
                 best = game.getGoldGained();
-                new SolveFileWriter().writeToFile(moves, stest + "_ans.json");
+                new SolveFileWriter(stest + "_ans.json").writeToFile(moves);
                 System.out.println(test + " done, result = " + game.getGoldGained());
             }
             System.out.println("late " + late + " checked");

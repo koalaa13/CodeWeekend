@@ -82,7 +82,7 @@ public class AnswerGenerator {
         GameParser gameParser = new GameParser();
         Game game = gameParser.parse(file);
         List<Move> moves = solver.solve(game, file.getName());
-        SolveFileWriter solveFileWriter = new SolveFileWriter();
-        solveFileWriter.writeToFile(moves, "ans/" + answerFilename);
+        SolveFileWriter solveFileWriter = new SolveFileWriter("ans/" + answerFilename);
+        solveFileWriter.writeToFile(moves);
     }
 }

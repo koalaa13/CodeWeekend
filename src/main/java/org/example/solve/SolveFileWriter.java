@@ -14,13 +14,15 @@ import java.util.Map;
 public class SolveFileWriter {
     private final ObjectMapper objectMapper;
     private final ObjectWriter objectWriter;
+    private final String fileName;
 
-    public SolveFileWriter() {
+    public SolveFileWriter(String fileName) {
+        this.fileName = fileName;
         objectMapper = new ObjectMapper().setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
         objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
     }
 
-    public void writeToFile(List<Move> moves, String fileName) throws IOException {
+    public void writeToFile(List<Move> moves) throws IOException {
         Map<String, List<Move>> map = Map.of("moves", moves);
         objectWriter.writeValue(new File(Config.TEST_FOLDER + fileName), map);
     }
