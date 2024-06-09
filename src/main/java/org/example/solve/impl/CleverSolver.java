@@ -71,7 +71,7 @@ public class CleverSolver extends Solver {
             }
         }
 
-        public void addNewState(State state) {
+        public synchronized void addNewState(State state) {
             insertToQueue(bestByGold, state, 1);
             insertToQueue(bestByExp, state, 3);
 //            insertToQueue(bestByMoves, state, 5);
@@ -96,14 +96,44 @@ public class CleverSolver extends Solver {
 //        this.constants = constants;
 //    }
 
+    private static void processState(State s, int monsterCount, int movesLimit, List<BestMoves> answers) {
+        State nState = s.makeCopy();
+        for (int mI = 0; mI < nState.game.getField().getMonsters().size(); mI++) {
+            Game nGame = nState.game;
+            Monster monster = nGame.getField().snapshotMonster(mI);
+
+            List<TravelMove> travelMoves = MoveUtils.moveToShotRange(nGame.getHero(), monster);
+            CombatUtils.getDamage(nGame.getHero(), travelMoves, nGame.getField().getMonsters());
+            nState.moves.addAll(travelMoves);
+            nGame.setTravelsCount(nGame.getTravelsCount() + travelMoves.size());
+
+            if (monster.getId() <= monsterCount) {
+                long movesToKill = CombatUtils.movesToKill(nGame.getHero(), monster);
+                CombatUtils.getDamage(nGame.getHero(), nGame.getHero().getX(),
+                        nGame.getHero().getY(), nGame.getField().getMonsters(), movesToKill - 1);
+
+                List<AttackMove> attackMoves = CombatUtils.killMonster(nGame.getHero(), monster);
+                nState.moves.addAll(attackMoves);
+                nGame.setGoldGained(nGame.getGoldGained() + nGame.getHero().getGold(monster.getGold()));
+                CombatUtils.getDamage(nGame.getHero(), nGame.getHero().getX(),
+                        nGame.getHero().getY(), nGame.getField().getMonsters(), 1);
+            }
+
+            if (nState.moves.size() < movesLimit) {
+                answers.get(nState.moves.size()).addNewState(nState);
+            }
+            nState = s.makeCopy();
+        }
+    }
+
     @Override
-    public List<Move> solve(Game game, String name, SolveFileWriter solveFileWriter) throws IOException {
+    public List<Move> solve(Game game, String name, SolveFileWriter solveFileWriter) throws IOException, InterruptedException {
         long startTime = System.currentTimeMillis();
-        int movesLimit = (int) game.getNumTurns();
+        final int movesLimit = (int) game.getNumTurns();
         game.getHero().initStart();
 
         // Fake monsters
-        int monsterCount = game.getField().getMonsters().size();
+        final int monsterCount = game.getField().getMonsters().size();
         int newMonsterId = monsterCount + 1;
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
@@ -124,39 +154,20 @@ public class CleverSolver extends Solver {
                 long expectedTime = (System.currentTimeMillis() - startTime) * (movesLimit - iter) / 1000 / (iter + 1);
                 Optional<State> st = allStates.stream().max(Comparator.comparingLong(s -> s.game.getGoldGained()));
                 if (st.isPresent()) {
-                    System.out.printf("%s. %d/%d. Max gold: %d. Fatigue: %d. Expected: %d%n",
+                    System.out.printf("%s. %d/%d it. Max gold: %d. Fatigue: %d. Expected: %d s.%n",
                             name, iter + 1, movesLimit, st.get().game.getGoldGained(),
                             st.get().game.getHero().getFatigue(), expectedTime);
                     solveFileWriter.writeToFile(st.get().moves);
                 }
             }
-            for (State s : allStates) {
-                State nState = s.makeCopy();
-                for (int mI = 0; mI < nState.game.getField().getMonsters().size(); mI++) {
-                    Game nGame = nState.game;
-                    Monster monster = nGame.getField().snapshotMonster(mI);
-
-                    List<TravelMove> travelMoves = MoveUtils.moveToShotRange(nGame.getHero(), monster);
-                    CombatUtils.getDamage(nGame.getHero(), travelMoves, nGame.getField().getMonsters());
-                    nState.moves.addAll(travelMoves);
-                    nGame.setTravelsCount(nGame.getTravelsCount() + travelMoves.size());
-
-                    if (monster.getId() <= monsterCount) {
-                        long movesToKill = CombatUtils.movesToKill(nGame.getHero(), monster);
-                        CombatUtils.getDamage(nGame.getHero(), nGame.getHero().getX(),
-                                nGame.getHero().getY(), nGame.getField().getMonsters(), movesToKill - 1);
-
-                        List<AttackMove> attackMoves = CombatUtils.killMonster(nGame.getHero(), monster);
-                        nState.moves.addAll(attackMoves);
-                        nGame.setGoldGained(nGame.getGoldGained() + nGame.getHero().getGold(monster.getGold()));
-                        CombatUtils.getDamage(nGame.getHero(), nGame.getHero().getX(),
-                                nGame.getHero().getY(), nGame.getField().getMonsters(), 1);
-                    }
-
-                    if (nState.moves.size() < movesLimit) {
-                        answers.get(nState.moves.size()).addNewState(nState);
-                    }
-                    nState = s.makeCopy();
+            if (monsterCount > 1500) {
+                List<Thread> threads = allStates.stream()
+                        .map(s -> new Thread(() -> processState(s, monsterCount, movesLimit, answers))).toList();
+                threads.forEach(Thread::start);
+                for (Thread th : threads) th.join();
+            } else {
+                for (State s : allStates) {
+                    processState(s, monsterCount, movesLimit, answers);
                 }
             }
         }
@@ -168,7 +179,7 @@ public class CleverSolver extends Solver {
                 }
             }
         }
-        System.out.println("Optimal answer: " + bestState.game.getGoldGained());
+        System.out.println(name + ". Optimal answer: " + bestState.game.getGoldGained());
         return bestState.moves;
     }
 }
