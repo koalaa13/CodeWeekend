@@ -13,7 +13,7 @@ public class SolverConstants {
 
     public long lateExpCoeff = 0;
 
-    public long lateStart = 100000;
+    public long lateStart = 230;
 
     public long vipCoeff = 1000000000;
 

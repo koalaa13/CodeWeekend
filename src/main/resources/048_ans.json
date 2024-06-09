@@ -1,720 +1,920 @@
 {
   "moves" : [ {
-    "target_x" : 1340,
-    "target_y" : 626,
+    "comment" : "Move to 832, 325",
+    "target_x" : 832,
+    "target_y" : 325,
     "type" : "move"
   }, {
-    "target_id" : 129,
-    "type" : "attack"
-  }, {
-    "target_id" : 187,
-    "type" : "attack"
-  }, {
-    "target_x" : 594,
-    "target_y" : 122,
-    "type" : "move"
-  }, {
-    "target_id" : 193,
-    "type" : "attack"
-  }, {
-    "target_id" : 25,
-    "type" : "attack"
-  }, {
-    "target_id" : 192,
-    "type" : "attack"
-  }, {
-    "target_x" : 1645,
-    "target_y" : 352,
-    "type" : "move"
-  }, {
-    "target_id" : 108,
-    "type" : "attack"
-  }, {
-    "target_id" : 172,
-    "type" : "attack"
-  }, {
-    "target_id" : 177,
-    "type" : "attack"
-  }, {
-    "target_id" : 109,
-    "type" : "attack"
-  }, {
-    "target_x" : 2016,
-    "target_y" : 153,
-    "type" : "move"
-  }, {
-    "target_id" : 115,
-    "type" : "attack"
-  }, {
-    "target_id" : 114,
-    "type" : "attack"
-  }, {
-    "target_x" : 1400,
-    "target_y" : 152,
-    "type" : "move"
-  }, {
-    "target_id" : 41,
-    "type" : "attack"
-  }, {
-    "target_x" : 426,
-    "target_y" : 727,
-    "type" : "move"
-  }, {
-    "target_id" : 17,
-    "type" : "attack"
-  }, {
-    "target_x" : 904,
-    "target_y" : 304,
-    "type" : "move"
-  }, {
-    "target_id" : 53,
-    "type" : "attack"
-  }, {
-    "target_x" : 1970,
-    "target_y" : 88,
-    "type" : "move"
-  }, {
-    "target_id" : 155,
-    "type" : "attack"
-  }, {
-    "target_id" : 154,
-    "type" : "attack"
-  }, {
-    "target_id" : 180,
-    "type" : "attack"
-  }, {
-    "target_id" : 179,
-    "type" : "attack"
-  }, {
-    "target_x" : 395,
-    "target_y" : 695,
-    "type" : "move"
-  }, {
-    "target_id" : 20,
-    "type" : "attack"
-  }, {
-    "target_x" : 1989,
-    "target_y" : 445,
-    "type" : "move"
-  }, {
-    "target_id" : 46,
-    "type" : "attack"
-  }, {
-    "target_id" : 45,
-    "type" : "attack"
-  }, {
-    "target_x" : 1278,
-    "target_y" : 279,
-    "type" : "move"
-  }, {
-    "target_id" : 86,
-    "type" : "attack"
-  }, {
-    "target_x" : 881,
-    "target_y" : 349,
-    "type" : "move"
-  }, {
-    "target_id" : 1,
-    "type" : "attack"
-  }, {
-    "target_id" : 0,
-    "type" : "attack"
-  }, {
-    "target_x" : 1584,
-    "target_y" : 25,
-    "type" : "move"
-  }, {
-    "target_id" : 79,
-    "type" : "attack"
-  }, {
-    "target_id" : 78,
-    "type" : "attack"
-  }, {
-    "target_x" : 1727,
-    "target_y" : 519,
-    "type" : "move"
-  }, {
-    "target_id" : 248,
-    "type" : "attack"
-  }, {
-    "target_id" : 251,
-    "type" : "attack"
-  }, {
-    "target_x" : 637,
-    "target_y" : 183,
-    "type" : "move"
-  }, {
-    "target_id" : 21,
-    "type" : "attack"
-  }, {
-    "target_id" : 144,
-    "type" : "attack"
-  }, {
-    "target_id" : 139,
-    "type" : "attack"
-  }, {
-    "target_id" : 143,
-    "type" : "attack"
-  }, {
-    "target_x" : 1414,
-    "target_y" : 27,
-    "type" : "move"
-  }, {
-    "target_id" : 240,
-    "type" : "attack"
-  }, {
-    "target_x" : 2090,
-    "target_y" : 592,
-    "type" : "move"
-  }, {
-    "target_id" : 117,
-    "type" : "attack"
-  }, {
-    "target_id" : 121,
-    "type" : "attack"
-  }, {
-    "target_x" : 564,
-    "target_y" : 58,
-    "type" : "move"
-  }, {
-    "target_id" : 256,
-    "type" : "attack"
-  }, {
-    "target_id" : 252,
-    "type" : "attack"
-  }, {
-    "target_id" : 194,
-    "type" : "attack"
-  }, {
-    "target_x" : 2186,
-    "target_y" : 632,
-    "type" : "move"
-  }, {
-    "target_id" : 161,
-    "type" : "attack"
-  }, {
-    "target_id" : 165,
-    "type" : "attack"
-  }, {
-    "target_id" : 164,
-    "type" : "attack"
-  }, {
-    "target_x" : 126,
-    "target_y" : 693,
-    "type" : "move"
-  }, {
-    "target_id" : 214,
-    "type" : "attack"
-  }, {
-    "target_id" : 215,
-    "type" : "attack"
-  }, {
-    "target_x" : 1705,
-    "target_y" : 642,
-    "type" : "move"
-  }, {
-    "target_id" : 229,
-    "type" : "attack"
-  }, {
-    "target_x" : 1168,
-    "target_y" : 168,
-    "type" : "move"
-  }, {
-    "target_id" : 210,
-    "type" : "attack"
-  }, {
-    "target_id" : 274,
-    "type" : "attack"
-  }, {
-    "target_id" : 206,
-    "type" : "attack"
-  }, {
-    "target_x" : 482,
-    "target_y" : 491,
-    "type" : "move"
-  }, {
-    "target_id" : 8,
-    "type" : "attack"
-  }, {
-    "target_id" : 6,
-    "type" : "attack"
-  }, {
-    "target_id" : 7,
-    "type" : "attack"
-  }, {
-    "target_id" : 10,
-    "type" : "attack"
-  }, {
-    "target_x" : 246,
-    "target_y" : 532,
-    "type" : "move"
-  }, {
-    "target_id" : 133,
-    "type" : "attack"
-  }, {
-    "target_id" : 134,
-    "type" : "attack"
-  }, {
-    "target_x" : 538,
-    "target_y" : 386,
-    "type" : "move"
-  }, {
-    "target_id" : 75,
-    "type" : "attack"
-  }, {
-    "target_id" : 74,
-    "type" : "attack"
-  }, {
-    "target_id" : 157,
-    "type" : "attack"
-  }, {
-    "target_x" : 814,
-    "target_y" : 260,
-    "type" : "move"
-  }, {
-    "target_id" : 268,
-    "type" : "attack"
-  }, {
+    "comment" : "",
     "target_id" : 4,
     "type" : "attack"
   }, {
-    "target_id" : 269,
+    "comment" : "",
+    "target_id" : 0,
     "type" : "attack"
   }, {
-    "target_x" : 2163,
-    "target_y" : 298,
+    "comment" : "",
+    "target_id" : 5,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 5,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 2,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 1,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 472, 490",
+    "target_x" : 472,
+    "target_y" : 490,
     "type" : "move"
   }, {
-    "target_id" : 47,
+    "comment" : "",
+    "target_id" : 8,
     "type" : "attack"
   }, {
-    "target_id" : 49,
+    "comment" : "",
+    "target_id" : 8,
     "type" : "attack"
   }, {
-    "target_id" : 50,
+    "comment" : "",
+    "target_id" : 7,
     "type" : "attack"
   }, {
-    "target_id" : 48,
-    "type" : "attack"
-  }, {
-    "target_x" : 1816,
-    "target_y" : 35,
-    "type" : "move"
-  }, {
-    "target_id" : 200,
-    "type" : "attack"
-  }, {
-    "target_id" : 63,
-    "type" : "attack"
-  }, {
-    "target_id" : 64,
-    "type" : "attack"
-  }, {
-    "target_id" : 196,
-    "type" : "attack"
-  }, {
-    "target_x" : 1360,
-    "target_y" : 154,
-    "type" : "move"
-  }, {
-    "target_id" : 40,
-    "type" : "attack"
-  }, {
-    "target_x" : 486,
-    "target_y" : 453,
-    "type" : "move"
-  }, {
+    "comment" : "",
     "target_id" : 9,
     "type" : "attack"
   }, {
-    "target_x" : 722,
-    "target_y" : 414,
+    "comment" : "",
+    "target_id" : 9,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 6,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 6,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 360, 742",
+    "target_x" : 360,
+    "target_y" : 742,
     "type" : "move"
   }, {
-    "target_id" : 106,
-    "type" : "attack"
-  }, {
-    "target_id" : 166,
-    "type" : "attack"
-  }, {
-    "target_id" : 105,
-    "type" : "attack"
-  }, {
-    "target_id" : 167,
-    "type" : "attack"
-  }, {
-    "target_x" : 1917,
-    "target_y" : 150,
-    "type" : "move"
-  }, {
-    "target_id" : 153,
-    "type" : "attack"
-  }, {
-    "target_x" : 2011,
-    "target_y" : 471,
-    "type" : "move"
-  }, {
-    "target_id" : 43,
-    "type" : "attack"
-  }, {
-    "target_id" : 44,
-    "type" : "attack"
-  }, {
-    "target_id" : 42,
-    "type" : "attack"
-  }, {
-    "target_x" : 375,
-    "target_y" : 186,
-    "type" : "move"
-  }, {
-    "target_id" : 237,
-    "type" : "attack"
-  }, {
-    "target_id" : 232,
-    "type" : "attack"
-  }, {
-    "target_x" : 1791,
-    "target_y" : 600,
-    "type" : "move"
-  }, {
-    "target_id" : 266,
-    "type" : "attack"
-  }, {
-    "target_id" : 227,
-    "type" : "attack"
-  }, {
-    "target_id" : 231,
-    "type" : "attack"
-  }, {
-    "target_id" : 13,
-    "type" : "attack"
-  }, {
-    "target_id" : 12,
-    "type" : "attack"
-  }, {
-    "target_x" : 1915,
-    "target_y" : 491,
-    "type" : "move"
-  }, {
-    "target_id" : 242,
-    "type" : "attack"
-  }, {
-    "target_id" : 243,
-    "type" : "attack"
-  }, {
-    "target_id" : 244,
-    "type" : "attack"
-  }, {
-    "target_x" : 580,
-    "target_y" : 343,
-    "type" : "move"
-  }, {
-    "target_id" : 156,
-    "type" : "attack"
-  }, {
-    "target_x" : 1372,
-    "target_y" : 623,
-    "type" : "move"
-  }, {
-    "target_id" : 184,
-    "type" : "attack"
-  }, {
-    "target_id" : 189,
-    "type" : "attack"
-  }, {
-    "target_id" : 188,
-    "type" : "attack"
-  }, {
-    "target_x" : 611,
-    "target_y" : 224,
-    "type" : "move"
-  }, {
-    "target_id" : 22,
-    "type" : "attack"
-  }, {
-    "target_id" : 140,
-    "type" : "attack"
-  }, {
-    "target_id" : 141,
-    "type" : "attack"
-  }, {
-    "target_id" : 142,
-    "type" : "attack"
-  }, {
-    "target_x" : 738,
-    "target_y" : 451,
-    "type" : "move"
-  }, {
-    "target_id" : 104,
-    "type" : "attack"
-  }, {
-    "target_x" : 1502,
-    "target_y" : 42,
-    "type" : "move"
-  }, {
-    "target_id" : 238,
-    "type" : "attack"
-  }, {
-    "target_id" : 239,
-    "type" : "attack"
-  }, {
-    "target_x" : 1680,
-    "target_y" : 557,
-    "type" : "move"
-  }, {
-    "target_id" : 249,
-    "type" : "attack"
-  }, {
-    "target_id" : 250,
-    "type" : "attack"
-  }, {
-    "target_x" : 197,
-    "target_y" : 349,
-    "type" : "move"
-  }, {
-    "target_id" : 60,
-    "type" : "attack"
-  }, {
-    "target_id" : 57,
-    "type" : "attack"
-  }, {
-    "target_x" : 313,
-    "target_y" : 702,
-    "type" : "move"
-  }, {
+    "comment" : "",
     "target_id" : 19,
     "type" : "attack"
   }, {
-    "target_x" : 1053,
-    "target_y" : 227,
-    "type" : "move"
-  }, {
-    "target_id" : 208,
+    "comment" : "",
+    "target_id" : 19,
     "type" : "attack"
   }, {
-    "target_id" : 124,
+    "comment" : "",
+    "target_id" : 20,
     "type" : "attack"
   }, {
-    "target_x" : 1961,
-    "target_y" : 163,
-    "type" : "move"
-  }, {
-    "target_id" : 152,
+    "comment" : "",
+    "target_id" : 17,
     "type" : "attack"
   }, {
-    "target_x" : 2138,
-    "target_y" : 506,
+    "comment" : "",
+    "target_id" : 18,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 18,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 2186, 524",
+    "target_x" : 2186,
+    "target_y" : 524,
     "type" : "move"
   }, {
+    "comment" : "",
     "target_id" : 28,
     "type" : "attack"
   }, {
+    "comment" : "",
     "target_id" : 29,
     "type" : "attack"
   }, {
-    "target_x" : 2067,
-    "target_y" : 621,
+    "comment" : "",
+    "target_id" : 27,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 26,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 26,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 30,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 2014, 474",
+    "target_x" : 2014,
+    "target_y" : 474,
     "type" : "move"
   }, {
-    "target_id" : 225,
+    "comment" : "",
+    "target_id" : 42,
     "type" : "attack"
   }, {
-    "target_id" : 226,
+    "comment" : "",
+    "target_id" : 43,
     "type" : "attack"
   }, {
-    "target_id" : 119,
+    "comment" : "",
+    "target_id" : 46,
     "type" : "attack"
   }, {
-    "target_id" : 120,
-    "type" : "attack"
-  }, {
-    "target_id" : 118,
-    "type" : "attack"
-  }, {
-    "target_x" : 1526,
-    "target_y" : 31,
+    "comment" : "Move to 617, 622",
+    "target_x" : 617,
+    "target_y" : 622,
     "type" : "move"
   }, {
-    "target_id" : 241,
+    "comment" : "",
+    "target_id" : 81,
     "type" : "attack"
   }, {
-    "target_x" : 169,
-    "target_y" : 743,
-    "type" : "move"
-  }, {
-    "target_id" : 212,
-    "type" : "attack"
-  }, {
-    "target_id" : 211,
-    "type" : "attack"
-  }, {
-    "target_x" : 259,
-    "target_y" : 601,
-    "type" : "move"
-  }, {
-    "target_id" : 130,
-    "type" : "attack"
-  }, {
-    "target_id" : 131,
-    "type" : "attack"
-  }, {
-    "target_x" : 846,
-    "target_y" : 164,
-    "type" : "move"
-  }, {
-    "target_id" : 100,
-    "type" : "attack"
-  }, {
-    "target_id" : 271,
-    "type" : "attack"
-  }, {
-    "target_x" : 1641,
-    "target_y" : 275,
-    "type" : "move"
-  }, {
-    "target_id" : 110,
-    "type" : "attack"
-  }, {
-    "target_x" : 1147,
-    "target_y" : 300,
-    "type" : "move"
-  }, {
-    "target_id" : 123,
-    "type" : "attack"
-  }, {
-    "target_id" : 122,
-    "type" : "attack"
-  }, {
-    "target_id" : 88,
-    "type" : "attack"
-  }, {
-    "target_x" : 2052,
-    "target_y" : 712,
-    "type" : "move"
-  }, {
-    "target_id" : 223,
-    "type" : "attack"
-  }, {
-    "target_id" : 224,
-    "type" : "attack"
-  }, {
-    "target_x" : 675,
-    "target_y" : 592,
-    "type" : "move"
-  }, {
-    "target_id" : 85,
-    "type" : "attack"
-  }, {
+    "comment" : "",
     "target_id" : 80,
     "type" : "attack"
   }, {
-    "target_x" : 69,
-    "target_y" : 378,
+    "comment" : "",
+    "target_id" : 85,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 631, 437",
+    "target_x" : 631,
+    "target_y" : 437,
     "type" : "move"
   }, {
-    "target_id" : 204,
+    "comment" : "",
+    "target_id" : 168,
     "type" : "attack"
   }, {
-    "target_id" : 205,
+    "comment" : "",
+    "target_id" : 72,
     "type" : "attack"
   }, {
-    "target_id" : 201,
+    "comment" : "",
+    "target_id" : 72,
     "type" : "attack"
   }, {
-    "target_x" : 1691,
-    "target_y" : 80,
+    "comment" : "",
+    "target_id" : 169,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 2009, 197",
+    "target_x" : 2009,
+    "target_y" : 197,
     "type" : "move"
   }, {
-    "target_id" : 198,
+    "comment" : "",
+    "target_id" : 152,
     "type" : "attack"
   }, {
-    "target_x" : 1322,
-    "target_y" : 169,
+    "comment" : "",
+    "target_id" : 113,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 114,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 510, 164",
+    "target_x" : 510,
+    "target_y" : 164,
     "type" : "move"
   }, {
-    "target_id" : 272,
+    "comment" : "",
+    "target_id" : 253,
     "type" : "attack"
   }, {
-    "target_id" : 39,
+    "comment" : "",
+    "target_id" : 23,
     "type" : "attack"
   }, {
-    "target_x" : 713,
-    "target_y" : 359,
+    "comment" : "",
+    "target_id" : 24,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 2165, 296",
+    "target_x" : 2165,
+    "target_y" : 296,
     "type" : "move"
   }, {
-    "target_id" : 170,
+    "comment" : "",
+    "target_id" : 47,
     "type" : "attack"
   }, {
-    "target_id" : 171,
+    "comment" : "",
+    "target_id" : 49,
     "type" : "attack"
   }, {
-    "target_x" : 2114,
-    "target_y" : 659,
+    "comment" : "",
+    "target_id" : 48,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 50,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 51,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 148, 381",
+    "target_x" : 148,
+    "target_y" : 381,
     "type" : "move"
   }, {
-    "target_id" : 163,
+    "comment" : "",
+    "target_id" : 59,
     "type" : "attack"
   }, {
-    "target_id" : 222,
+    "comment" : "",
+    "target_id" : 58,
     "type" : "attack"
   }, {
-    "target_x" : 1432,
-    "target_y" : 670,
-    "type" : "move"
-  }, {
-    "target_id" : 185,
+    "comment" : "",
+    "target_id" : 60,
     "type" : "attack"
   }, {
-    "target_id" : 261,
-    "type" : "attack"
-  }, {
+    "comment" : "Move to 428, 302",
     "target_x" : 428,
-    "target_y" : 380,
+    "target_y" : 302,
     "type" : "move"
   }, {
-    "target_id" : 69,
+    "comment" : "",
+    "target_id" : 159,
     "type" : "attack"
   }, {
-    "target_id" : 158,
+    "comment" : "",
+    "target_id" : 71,
     "type" : "attack"
   }, {
-    "target_id" : 67,
+    "comment" : "",
+    "target_id" : 70,
     "type" : "attack"
   }, {
-    "target_id" : 66,
-    "type" : "attack"
-  }, {
-    "target_id" : 68,
-    "type" : "attack"
-  }, {
-    "target_x" : 1096,
-    "target_y" : 233,
+    "comment" : "Move to 920, 240",
+    "target_x" : 920,
+    "target_y" : 240,
     "type" : "move"
   }, {
+    "comment" : "",
+    "target_id" : 54,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 55,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 56,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 247, 248",
+    "target_x" : 247,
+    "target_y" : 248,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 148,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 149,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 234,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 235,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 1683, 320",
+    "target_x" : 1683,
+    "target_y" : 320,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 107,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 110,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 108,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 566, 407",
+    "target_x" : 566,
+    "target_y" : 407,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 74,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 75,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 73,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 242, 568",
+    "target_x" : 242,
+    "target_y" : 568,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 132,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 130,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 131,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 762, 448",
+    "target_x" : 762,
+    "target_y" : 448,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 106,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 103,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 104,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 625, 194",
+    "target_x" : 625,
+    "target_y" : 194,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 144,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 142,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 21,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 143,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 1123, 186",
+    "target_x" : 1123,
+    "target_y" : 186,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 208,
+    "type" : "attack"
+  }, {
+    "comment" : "",
     "target_id" : 207,
     "type" : "attack"
   }, {
+    "comment" : "",
     "target_id" : 125,
     "type" : "attack"
   }, {
-    "target_x" : 1373,
-    "target_y" : 663,
+    "comment" : "Move to 425, 356",
+    "target_x" : 425,
+    "target_y" : 356,
     "type" : "move"
   }, {
-    "target_id" : 126,
+    "comment" : "",
+    "target_id" : 69,
     "type" : "attack"
   }, {
-    "target_id" : 186,
+    "comment" : "",
+    "target_id" : 66,
     "type" : "attack"
   }, {
-    "target_x" : 1770,
-    "target_y" : 541,
+    "comment" : "",
+    "target_id" : 158,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 1930, 113",
+    "target_x" : 1930,
+    "target_y" : 113,
     "type" : "move"
   }, {
+    "comment" : "",
+    "target_id" : 153,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 180,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 154,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 2132, 587",
+    "target_x" : 2132,
+    "target_y" : 587,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 164,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 117,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 121,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 1846, 523",
+    "target_x" : 1846,
+    "target_y" : 523,
+    "type" : "move"
+  }, {
+    "comment" : "",
     "target_id" : 16,
     "type" : "attack"
   }, {
-    "target_id" : 15,
+    "comment" : "",
+    "target_id" : 244,
     "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 11,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 2066, 105",
+    "target_x" : 2066,
+    "target_y" : 105,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 115,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 116,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 151,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 1784, 620",
+    "target_x" : 1784,
+    "target_y" : 620,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 12,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 13,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 227,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 265,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 228,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 1204, 268",
+    "target_x" : 1204,
+    "target_y" : 268,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 87,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 90,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 89,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 86,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 2182, 635",
+    "target_x" : 2182,
+    "target_y" : 635,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 161,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 163,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 165,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 691, 407",
+    "target_x" : 691,
+    "target_y" : 407,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 170,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 171,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 166,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 55, 388",
+    "target_x" : 55,
+    "target_y" : 388,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 203,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 205,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 204,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 311, 213",
+    "target_x" : 311,
+    "target_y" : 213,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 150,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 236,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 237,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 1611, 379",
+    "target_x" : 1611,
+    "target_y" : 379,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 177,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 175,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 176,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 608, 103",
+    "target_x" : 608,
+    "target_y" : 103,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 190,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 195,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 191,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 193,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 1700, 194",
+    "target_x" : 1700,
+    "target_y" : 194,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 138,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 137,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 136,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 135,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 122, 720",
+    "target_x" : 122,
+    "target_y" : 720,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 212,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 215,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 211,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 625, 194",
+    "target_x" : 625,
+    "target_y" : 194,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 140,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 139,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 141,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 832, 205",
+    "target_x" : 832,
+    "target_y" : 205,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 269,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 268,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 270,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 1901, 461",
+    "target_x" : 1901,
+    "target_y" : 461,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 247,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 245,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 246,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 1394, 739",
+    "target_x" : 1394,
+    "target_y" : 739,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 126,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 127,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 260,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 613, 625",
+    "target_x" : 613,
+    "target_y" : 625,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 83,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 82,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 84,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 1969, 44",
+    "target_x" : 1969,
+    "target_y" : 44,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 179,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 178,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 181,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 40, 514",
+    "target_x" : 40,
+    "target_y" : 514,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 221,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 220,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 219,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 305, 282",
+    "target_x" : 305,
+    "target_y" : 282,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 147,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 145,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 233,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 146,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 1693, 552",
+    "target_x" : 1693,
+    "target_y" : 552,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 249,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 251,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 250,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 1577, 2",
+    "target_x" : 1577,
+    "target_y" : 2,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 78,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 238,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 79,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 1278, 218",
+    "target_x" : 1278,
+    "target_y" : 218,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 39,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 273,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 272,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 1941, 735",
+    "target_x" : 1941,
+    "target_y" : 735,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 278,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 277,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 279,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 1125, 183",
+    "target_x" : 1125,
+    "target_y" : 183,
+    "type" : "move"
+  }, {
+    "comment" : "",
+    "target_id" : 209,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 206,
+    "type" : "attack"
+  }, {
+    "comment" : "",
+    "target_id" : 210,
+    "type" : "attack"
+  }, {
+    "comment" : "Move to 1831, 655",
+    "target_x" : 1831,
+    "target_y" : 655,
+    "type" : "move"
   } ]
 }

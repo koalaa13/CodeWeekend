@@ -6,6 +6,7 @@ import org.example.parser.impl.GameParser;
 import org.example.solve.SolveFileWriter;
 import org.example.solve.Solver;
 import org.example.solve.SolverConstants;
+import org.example.solve.impl.FieldSolver;
 import org.example.solve.impl.SimpleSolver;
 
 import java.io.IOException;
@@ -143,10 +144,23 @@ public class Main {
         }
     }
 
+    public static void runField(int test) throws IOException {
+        Solver solver = new FieldSolver(new SolverConstants());
+
+        String stest = String.valueOf(test);
+        while (stest.length() != 3) {
+            stest = "0" + stest;
+        }
+        Game game = new GameParser().parse(stest + ".json");
+        new SolveFileWriter().writeToFile(solver.solve(game), stest + "_ans.json");
+        System.out.println(test + " done, result = " + game.getGoldGained());
+    }
+
     public static void main(String[] args) throws IOException {
         //bruteVip(15);
         //brute(50);
-        experiment(36);
+        //experiment(36);
         //experimentVip(15);
+        runField(46);
     }
 }
