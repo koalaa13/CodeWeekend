@@ -63,11 +63,11 @@ public class CleverSolver extends Solver {
         }
 
         public void addNewState(State state) {
-            insertToQueue(bestByGold, state, 3);
-            insertToQueue(bestByExp, state, 3);
+            insertToQueue(bestByGold, state, 2);
+            insertToQueue(bestByExp, state, 2);
 //            insertToQueue(bestByMoves, state, 5);
-            insertToQueue(bestByComplex, state, 15);
-            insertToQueue(bestByFatigue, state, 10);
+            insertToQueue(bestByComplex, state, 10);
+            insertToQueue(bestByFatigue, state, 5);
         }
 
         public List<State> getAllStates() {

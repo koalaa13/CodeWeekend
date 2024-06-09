@@ -11,8 +11,28 @@ import java.io.IOException;
 import java.util.List;
 
 public class AnswerGenerator {
+    private class TestRunner implements Runnable {
+        private final Solver solver;
+        private final File f;
+        private final String filename;
 
-    public void generateAllTestsAnswers(Solver solver, boolean onlyNew) throws IOException {
+        TestRunner(Solver solver, File file, String answerFilename) {
+            this.solver = solver;
+            this.f = file;
+            this.filename = answerFilename;
+        }
+
+        @Override
+        public void run() {
+            try {
+                generateTestAnswer(solver, f, filename);
+            } catch (IOException e) {
+                System.out.println("Failed test " + f);
+            }
+        }
+    }
+
+    public void generateAllTestsAnswers(Solver solver, boolean onlyNew, boolean multithreading) throws IOException {
         File dir = new File(Config.TEST_FOLDER);
         File[] files = dir.listFiles();
         for (int i = 0; i < files.length; i++) {
@@ -26,7 +46,11 @@ public class AnswerGenerator {
                 continue;
             }
             String filename = tId + "_ans.json";
-            generateTestAnswer(solver, f, filename);
+            if (multithreading) {
+                new Thread(new TestRunner(solver, f, filename)).start();
+            } else {
+                generateTestAnswer(solver, f, filename);
+            }
         }
     }
 
