@@ -11,4 +11,8 @@ public class Game {
     private long numTurns;
     private long goldGained;
     private long turnsPassed;
+
+    public Game makeCopy() {
+        return new Game(hero, field, numTurns, goldGained, turnsPassed);
+    }
 }

@@ -6,6 +6,7 @@ import org.example.parser.impl.GameParser;
 import org.example.solve.SolveFileWriter;
 import org.example.solve.Solver;
 import org.example.solve.SolverConstants;
+import org.example.solve.impl.BruteSolver;
 import org.example.solve.impl.FieldSolver;
 import org.example.solve.impl.SimpleSolver;
 
@@ -161,6 +162,7 @@ public class Main {
         //brute(50);
         //experiment(36);
         //experimentVip(15);
-        runField(46);
+        Solver x = new BruteSolver();
+        x.solve(new GameParser().parse("002.json"));
     }
 }
