@@ -1,7 +1,9 @@
 package org.example.model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+@EqualsAndHashCode
 @Data
 public class Monster {
     private long x;

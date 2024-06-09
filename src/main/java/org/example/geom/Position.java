@@ -1,7 +1,9 @@
 package org.example.geom;
 
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
+@ToString
 @EqualsAndHashCode
 public class Position {
     public long x;
