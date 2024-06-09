@@ -32,37 +32,26 @@ public class CleverSolver extends Solver {
     }
 
     private class BestMoves {
-        private static final Comparator<State> compareByGold =
-                Comparator.comparingLong(o -> o.game.getGoldGained());
-        private static final Comparator<State> compareByTotalExp =
-                Comparator.comparingLong(o -> o.game.getHero().getTotalExp() * 100 - o.game.getHero().getFatigue());
-        private static final Comparator<State> compareByComplex =
-                Comparator.comparingLong(o -> o.game.getHero().getTotalExp() * 10 + o.game.getGoldGained() - 100 * o.game.getHero().getFatigue());
-        private static final Comparator<State> compareByDistance =
-                Comparator.comparingLong(o ->
-                        o.game.getHero().getTotalExp() * 5 + o.game.getGoldGained() - 50 * o.game.getHero().getFatigue() + 10 * o.game.getHero().getShift());
-
-        static List<Comparator<State>> comps = List.of(
-                compareByGold,
-                compareByTotalExp,
-                (o1, o2) -> {
-                    if (o1.game.getTravelsCount() != o2.game.getTravelsCount()) {
-                        return Long.compare(o2.game.getTravelsCount(), o1.game.getTravelsCount());
+        private static List<Comparator<State>> getComps() {
+            List<Comparator<State>> res = new ArrayList<>();
+            List<Long> mods = List.of(1L, 10L, 100L);
+            for (long gMod : mods) {
+                for (long eMod : mods) {
+                    for (long fMod : mods) {
+                        for (long dMod : mods) {
+                            res.add(Comparator.comparingLong(o ->
+                                    eMod * o.game.getHero().getTotalExp() - fMod * o.game.getHero().getFatigue() +
+                                            gMod * o.game.getGoldGained() + dMod * o.game.getHero().getShift()
+                            ));
+                        }
                     }
-                    return compareByTotalExp.compare(o1, o2);
-                },
-                compareByComplex,
-                compareByDistance
-        );
-        private final PriorityQueue<State> bestByGold = new PriorityQueue<>(comps.get(0));
+                }
+            }
+            return res;
+        }
 
-        private final PriorityQueue<State> bestByExp = new PriorityQueue<>(comps.get(1));
-
-        private final PriorityQueue<State> bestByMoves = new PriorityQueue<>(comps.get(2));
-
-        private final PriorityQueue<State> bestByComplex = new PriorityQueue<>(comps.get(3));
-
-        private final PriorityQueue<State> bestByDistance = new PriorityQueue<>(comps.get(4));
+        static List<Comparator<State>> comps = getComps();
+        private final List<PriorityQueue<State>> bestStates = comps.stream().map(PriorityQueue::new).toList();
 
         private <T> void insertToQueue(PriorityQueue<T> queue, T elem, int limit) {
             queue.add(elem);
@@ -72,20 +61,12 @@ public class CleverSolver extends Solver {
         }
 
         public synchronized void addNewState(State state) {
-            insertToQueue(bestByGold, state, 1);
-            insertToQueue(bestByExp, state, 3);
-//            insertToQueue(bestByMoves, state, 5);
-            insertToQueue(bestByComplex, state, 25);
-            insertToQueue(bestByDistance, state, 3);
+            bestStates.forEach(q -> insertToQueue(q, state, 3));
         }
 
         public List<State> getAllStates() {
             Set<State> set = new HashSet<>();
-            set.addAll(bestByExp);
-            set.addAll(bestByGold);
-//            set.addAll(bestByMoves);
-            set.addAll(bestByComplex);
-            set.addAll(bestByDistance);
+            bestStates.forEach(set::addAll);
             return new ArrayList<>(set);
         }
     }
@@ -160,7 +141,7 @@ public class CleverSolver extends Solver {
                     solveFileWriter.writeToFile(st.get().moves);
                 }
             }
-            if (monsterCount > 700) {
+            if (monsterCount > 100) {
                 List<Thread> threads = allStates.stream()
                         .map(s -> new Thread(() -> processState(s, monsterCount, movesLimit, answers))).toList();
                 threads.forEach(Thread::start);
