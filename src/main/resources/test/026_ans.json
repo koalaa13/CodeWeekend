@@ -1,0 +1,55 @@
+{
+  "moves" : [ {
+    "target_x" : 50,
+    "target_y" : 53,
+    "type" : "move"
+  }, {
+    "target_x" : 54,
+    "target_y" : 62,
+    "type" : "move"
+  }, {
+    "target_id" : 6,
+    "type" : "attack"
+  }, {
+    "target_id" : 6,
+    "type" : "attack"
+  }, {
+    "target_id" : 4,
+    "type" : "attack"
+  }, {
+    "target_x" : 48,
+    "target_y" : 54,
+    "type" : "move"
+  }, {
+    "target_x" : 42,
+    "target_y" : 46,
+    "type" : "move"
+  }, {
+    "target_x" : 36,
+    "target_y" : 38,
+    "type" : "move"
+  }, {
+    "target_x" : 30,
+    "target_y" : 30,
+    "type" : "move"
+  }, {
+    "target_x" : 23,
+    "target_y" : 23,
+    "type" : "move"
+  }, {
+    "target_x" : 16,
+    "target_y" : 16,
+    "type" : "move"
+  }, {
+    "target_x" : 13,
+    "target_y" : 13,
+    "type" : "move"
+  }, {
+    "target_id" : 1,
+    "type" : "attack"
+  }, {
+    "target_x" : 19,
+    "target_y" : 21,
+    "type" : "move"
+  } ]
+}

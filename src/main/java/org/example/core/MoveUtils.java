@@ -41,6 +41,7 @@ public class MoveUtils {
                 throw new RuntimeException("can't find next move");
             }
             moves.add(new TravelMove(nextPos.x, nextPos.y));
+            moves.getLast().comment = "Move to " + nextPos.x + ", " + nextPos.y;
             heroPos = nextPos;
         }
         return moves;
@@ -51,6 +52,45 @@ public class MoveUtils {
         if (!moves.isEmpty()) {
             hero.setX(moves.getLast().getTargetX());
             hero.setY(moves.getLast().getTargetY());
+        }
+        return moves;
+    }
+
+    public static List<TravelMove> moveToPosition(Hero hero, Position position) {
+        List<TravelMove> moves = new ArrayList<>();
+        Position heroPos = new Position(hero.getX(), hero.getY());
+        Vec posV = new Vec(position);
+
+        while (true) {
+            long distance = heroPos.distance(position);
+            if (distance == 0) {
+                break;
+            }
+            if (distance <= hero.getSpeed() * hero.getSpeed()) {
+                moves.add(new TravelMove(position.x, position.y));
+                moves.getLast().comment = "Move to " + position.x + ", " + position.y;
+                hero.setX(position.x);
+                hero.setY(position.y);
+                break;
+            }
+            Vec heroV = new Vec(heroPos);
+            Vec direction = posV.sub(heroV).norm();
+            long minDist = Long.MAX_VALUE;
+            Position nextPos = null;
+            double shiftDistance = hero.getSpeed();
+            Position[] possiblePoses = heroV.add(direction.mul(shiftDistance)).integerSurround();
+            for (Position possiblePos : possiblePoses) {
+                if (heroPos.distance(possiblePos) <= hero.getSpeed() * hero.getSpeed() && possiblePos.distance(position) < minDist) {
+                    minDist = possiblePos.distance(position);
+                    nextPos = possiblePos;
+                }
+            }
+            if (nextPos == null) {
+                throw new RuntimeException("can't find next move");
+            }
+            moves.add(new TravelMove(nextPos.x, nextPos.y));
+            moves.getLast().comment = "Move to " + nextPos.x + ", " + nextPos.y;
+            heroPos = nextPos;
         }
         return moves;
     }

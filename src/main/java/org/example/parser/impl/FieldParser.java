@@ -27,9 +27,12 @@ public class FieldParser extends Parser<Field> {
 
         for (int i = 0; i < field.getMonsters().size(); i++) {
             field.getMonsters().get(i).setId(i);
-            if (field.getMonsters().get(i).getExp() > 1) {
+            if (field.getMonsters().get(i).getAttack() > 900000000) {
                 field.getMonsters().get(i).setVip(true);
             }
+            /*if (field.getMonsters().get(i).getExp() > 1) {
+                field.getMonsters().get(i).setVip(true);
+            }*/
         }
 
         Collections.shuffle(field.getMonsters(), new Random(1373737));

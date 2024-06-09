@@ -1,17 +1,19 @@
 package org.example.solve;
 
 public class SolverConstants {
-    public long goldCoeff = 0;
+    public long goldCoeff = 1;
 
-    public long expCoeff = 1;
+    public long expCoeff = 2;
 
-    public long zoneCoeff = 0;
+    public long movesCoef = 3;
+
+    public long rangeCoef = 0;
 
     public long lateGoldCoeff = 1;
 
     public long lateExpCoeff = 0;
 
-    public long lateStart = 200;
+    public long lateStart = 100000;
 
     public long vipCoeff = 1000000000;
 

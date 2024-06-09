@@ -35,16 +35,35 @@ public class ScoreProvider {
 
     public double monsterRelativeScore(Monster monster, Hero hero) {
         if (monster.isKilled()) {
-            return -1;
+            return -1e9;
         }
         List<TravelMove> travelMoves = MoveUtils.calcMovesToShotRange(hero, monster);
         long moves = CombatUtils.movesToKill(hero, monster) + travelMoves.size();
         if (moves > game.getNumTurns()) {
-            return 0;
+            return -1e9 + 1;
         }
-        if (monster.isVip() && game.getTurnsPassed() < constants.lateStart) {
+        /*if (monster.getRange() >= hero.getRange()) {
+            return -1e9 + 2;
+        }*/
+        if (monster.isVip()) {
+            return -1e9 + 3;
+        }
+        long turns = game.getTurnsPassed();
+        //long pureDist = new Position(hero.getX(), hero.getY()).distance(new Position(monster.getX(), monster.getY()));
+        long pureDist = (long) Math.pow(hero.getX() - monster.getX(), 2) * 5 + (long) Math.pow(hero.getY() - monster.getY(), 2);
+        if (turns < constants.lateStart) {
+            return -pureDist;
+            //return -(constants.movesCoef * travelMoves.size() + constants.rangeCoef * monster.getRange());
+        }
+
+        /*if (monster.isVip() && game.getTurnsPassed() < constants.lateStart) {
             return constants.vipCoeff / (double) travelMoves.size();
+        }*/
+
+        if (true) {
+            return Math.pow(monster.getGold(), 1) / (double) pureDist;
         }
+
         long goldCoeff = constants.goldCoeff;
         long expCoeff = constants.expCoeff;
         if (game.getTurnsPassed() >= constants.lateStart) {

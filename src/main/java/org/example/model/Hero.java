@@ -14,6 +14,7 @@ public class Hero {
     private long y;
     private long level;
     private long exp;
+    private long fatigue;
 
     public long getSpeed() {
         return (long) Math.floor((double) baseSpeed * (1 + (double) level * levelSpeedCoeff / 100.0));
@@ -39,6 +40,7 @@ public class Hero {
         hero.y = y;
         hero.level = level;
         hero.exp = exp;
+        hero.fatigue = fatigue;
         return hero;
     }
 }
