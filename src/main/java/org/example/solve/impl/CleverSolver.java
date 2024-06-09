@@ -73,10 +73,10 @@ public class CleverSolver extends Solver {
 
         public void addNewState(State state) {
             insertToQueue(bestByGold, state, 1);
-            insertToQueue(bestByExp, state, 5);
+            insertToQueue(bestByExp, state, 3);
 //            insertToQueue(bestByMoves, state, 5);
-            insertToQueue(bestByComplex, state, 5);
-            insertToQueue(bestByDistance, state, 5);
+            insertToQueue(bestByComplex, state, 15);
+            insertToQueue(bestByDistance, state, 3);
         }
 
         public List<State> getAllStates() {
@@ -105,10 +105,10 @@ public class CleverSolver extends Solver {
         // Fake monsters
         int monsterCount = game.getField().getMonsters().size();
         int newMonsterId = monsterCount + 1;
-        for (int i = 0; i < 11; i++) {
-            for (int j = 0; j < 11; j++) {
-                long x = game.getField().getWidth() * i / 10;
-                long y = game.getField().getHeight() * j / 10;
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                long x = game.getField().getWidth() * i / 5;
+                long y = game.getField().getHeight() * j / 5;
                 Monster monster = new Monster(x, y, 0, 1, 0, newMonsterId++, 0, 0);
                 game.getField().getMonsters().add(monster);
             }
@@ -126,11 +126,8 @@ public class CleverSolver extends Solver {
                 System.out.printf("%s. %d/%d. Max gold: %d. Expected: %d%n", name, iter + 1, movesLimit, gold, expectedTime);
             }
             for (State s : allStates) {
-                for (int mI = 0; mI < s.game.getField().getMonsters().size(); mI++) {
-                    if (s.game.getField().getMonsters().get(mI).isKilled()) {
-                        continue;
-                    }
-                    State nState = s.makeCopy();
+                State nState = s.makeCopy();
+                for (int mI = 0; mI < nState.game.getField().getMonsters().size(); mI++) {
                     Game nGame = nState.game;
                     Monster monster = nGame.getField().snapshotMonster(mI);
 
@@ -154,6 +151,7 @@ public class CleverSolver extends Solver {
                     if (nState.moves.size() < movesLimit) {
                         answers.get(nState.moves.size()).addNewState(nState);
                     }
+                    nState = s.makeCopy();
                 }
             }
         }

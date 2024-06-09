@@ -42,8 +42,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
         Solver solver = new CleverSolver();
         AnswerGenerator answerGenerator = new AnswerGenerator();
-        if (args.length == 2) {
-            answerGenerator.generateTestAnswer(solver, Integer.parseInt(args[1]));
+        if (args.length == 1) {
+            answerGenerator.generateTestAnswer(solver, Integer.parseInt(args[0]));
         } else {
             answerGenerator.generateAllTestsAnswers(solver, true, true);
         }

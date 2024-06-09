@@ -21,7 +21,11 @@ public class Field {
     }
 
     public Field makeCopy() {
-        return new Field(new ArrayList<>(monsters), width, height);
+        List<Monster> newMonsters = new ArrayList<>();
+        for (Monster m : monsters) {
+            if (!m.isKilled()) newMonsters.add(m);
+        }
+        return new Field(newMonsters, width, height);
     }
 
     public Monster snapshotMonster(int id) {
