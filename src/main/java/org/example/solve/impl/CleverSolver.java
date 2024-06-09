@@ -37,7 +37,7 @@ public class CleverSolver extends Solver {
         private static final Comparator<State> compareByTotalExp =
                 Comparator.comparingLong(o -> o.game.getHero().getTotalExp() * 100 - o.game.getHero().getFatigue());
         private static final Comparator<State> compareByComplex =
-                Comparator.comparingLong(o -> o.game.getHero().getTotalExp() * 10 + o.game.getGoldGained() - 50 * o.game.getHero().getFatigue());
+                Comparator.comparingLong(o -> o.game.getHero().getTotalExp() * 10 + o.game.getGoldGained() - 100 * o.game.getHero().getFatigue());
         private static final Comparator<State> compareByDistance =
                 Comparator.comparingLong(o ->
                         o.game.getHero().getTotalExp() * 5 + o.game.getGoldGained() - 50 * o.game.getHero().getFatigue() + 10 * o.game.getHero().getShift());
@@ -72,7 +72,7 @@ public class CleverSolver extends Solver {
         }
 
         public synchronized void addNewState(State state) {
-            insertToQueue(bestByGold, state, 3);
+            insertToQueue(bestByGold, state, 1);
             insertToQueue(bestByExp, state, 3);
 //            insertToQueue(bestByMoves, state, 5);
             insertToQueue(bestByComplex, state, 25);
