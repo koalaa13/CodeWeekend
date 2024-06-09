@@ -33,11 +33,9 @@ public class CleverSolver extends Solver {
         private static final Comparator<State> compareByGold =
                 Comparator.comparingLong(o -> o.game.getGoldGained());
         private static final Comparator<State> compareByTotalExp =
-                Comparator.comparingLong(o -> o.game.getHero().getTotalExp() * 100 + o.game.getGoldGained() - o.game.getHero().getFatigue());
+                Comparator.comparingLong(o -> o.game.getHero().getTotalExp() * 100 - o.game.getHero().getFatigue());
         private static final Comparator<State> compareByComplex =
-                Comparator.comparingLong(o -> o.game.getHero().getTotalExp() * 5 + o.game.getGoldGained() - o.game.getHero().getFatigue());
-        private static final Comparator<State> compareByFatigue =
-                Comparator.comparingLong(o -> o.game.getHero().getTotalExp() * 5 + o.game.getGoldGained() - 100 * o.game.getHero().getFatigue());
+                Comparator.comparingLong(o -> o.game.getHero().getTotalExp() * 5 + o.game.getGoldGained() - 5 * o.game.getHero().getFatigue());
         private static final Comparator<State> compareByDistance =
                 Comparator.comparingLong(o ->
                         o.game.getHero().getTotalExp() * 5 + o.game.getGoldGained() - o.game.getHero().getFatigue() + o.game.getHero().getShift());
@@ -52,7 +50,6 @@ public class CleverSolver extends Solver {
                     return compareByTotalExp.compare(o1, o2);
                 },
                 compareByComplex,
-                compareByFatigue,
                 compareByDistance
         );
         private final PriorityQueue<State> bestByGold = new PriorityQueue<>(comps.get(0));
@@ -63,9 +60,7 @@ public class CleverSolver extends Solver {
 
         private final PriorityQueue<State> bestByComplex = new PriorityQueue<>(comps.get(3));
 
-        private final PriorityQueue<State> bestByFatigue = new PriorityQueue<>(comps.get(4));
-
-        private final PriorityQueue<State> bestByDistance = new PriorityQueue<>(comps.get(5));
+        private final PriorityQueue<State> bestByDistance = new PriorityQueue<>(comps.get(4));
 
         private <T> void insertToQueue(PriorityQueue<T> queue, T elem, int limit) {
             if (!queue.contains(elem)) {
@@ -81,7 +76,6 @@ public class CleverSolver extends Solver {
             insertToQueue(bestByExp, state, 5);
 //            insertToQueue(bestByMoves, state, 5);
             insertToQueue(bestByComplex, state, 5);
-            insertToQueue(bestByFatigue, state, 5);
             insertToQueue(bestByDistance, state, 5);
         }
 
@@ -91,7 +85,6 @@ public class CleverSolver extends Solver {
             set.addAll(bestByGold);
 //            set.addAll(bestByMoves);
             set.addAll(bestByComplex);
-            set.addAll(bestByFatigue);
             set.addAll(bestByDistance);
             return new ArrayList<>(set);
         }
